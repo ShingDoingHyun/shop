@@ -8,3 +8,4 @@ drop table member;
 insert into member (member_name) values ('test');
 
 select * from member;
+yongjun0118
