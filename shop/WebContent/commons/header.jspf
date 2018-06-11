@@ -14,7 +14,7 @@
       <ul>
         <li><a href="/shop" class="active">Home</a></li>
         <li><a href="/shop/login.jsp">Login</a></li>
-        <li><a href="#">My Account</a></li>
+        <li><a href="/shop/connectionTest.jsp">My Account</a></li>
         <li><a href="#">The Store</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
