@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-<link rel="stylesheet" href="css/login.css" type="text/css" media="all" />
 
 </head>
 <body>
@@ -21,32 +20,18 @@
     <div class="cl">&nbsp;</div>
     <!-- Content -->
     <div id="content">
-    
-    <div id="loginForm">
-    	
-    	
-    	<% String msg = (String)request.getAttribute("msg"); %>
-        <% if(msg != null) {%>
-        	<p id="msg"><%=msg %></p>
-        <% } else {  %>
-    		<p id = "msg"> &nbsp; </p>
-    	<% } %>
-    	
     	<form action="login.do" method="post">
-        	<label for="id"><b>id</b></label>
-        	<input type="text" name ="id" class="logintxt">
-        	<label for="pw"><b>password</b></label>
-        	<input type="password" name="pwd" class="logintxt">
-        	<input type="submit" name="login" value="로그인" id="loginBtn">
-        	<input type="button" name="join" value="회원가입" id="joinBtn" onClick="location.href='/'">
+        	<label for="id">id:</label>
+        	<input type="text" name ="id">
+        	<label for="pw">pw:</label>
+        	<input type="password" name="pwd">
+        	<input type="submit" name="login" value="로그인">
+        	<input type="button" name="join" value="회원가입">
         </form>
-        
-    
-    
-    </div>
-    
-    
-    
+        <% String msg = (String)request.getAttribute("msg"); %>
+        <% if(msg != null) {%>
+        	<p><%=msg %></p>
+        <% } %>
     </div>
     <!-- End Content -->
     <!-- Sidebar -->
