@@ -32,7 +32,7 @@
     		<p id = "msg"> &nbsp; </p>
     	<% } %>
     	
-    	<form action="login.do" method="post">
+    	<form action="/login.do" method="post">
         	<label for="id"><b>id</b></label>
         	<input type="text" name ="id" class="logintxt">
         	<label for="pw"><b>password</b></label>

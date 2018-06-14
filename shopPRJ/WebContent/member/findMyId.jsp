@@ -22,14 +22,14 @@
     <!-- Content -->
     <div id="content">
     
-    <div id="loginForm">
+    <div id="findForm">
     	
     	
     
-    	<form action="" method="post">
+    	<form action="/findId.do" method="post">
         	<label for="email"><b>email 입력</b></label>
         	<input type="text" name ="email" class="logintxt">
-        	<input type="button" name="find" value="찾기" id="findBtn" onClick="location.href='/findId.do'">
+        	<input type="submit" name="find" value="찾기" id="findBtn">
         </form>
         
     

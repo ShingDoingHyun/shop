@@ -20,9 +20,7 @@
         <% if(sessionID == null){  %>
         <li><a href="http://localhost/member/login.jsp">Login</a></li>
 		<% }else { %>        
-        <li><a href="/">Logout</a></li>
-        	<% session.removeAttribute("id"); %>
-        	<% session.invalidate(); %>
+        <li><a href="/member/logout.jsp">Logout</a></li>
         <% } %>
         
         <li><a href="#">My Account</a></li>

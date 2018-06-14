@@ -56,4 +56,25 @@ public class MemberDAO {
         return -2; // DB 오류
         
     }
+    
+    //아이디 찾기
+    public String findID(String email) {
+    	
+    	String SQL = "";
+    	
+    	return "";
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

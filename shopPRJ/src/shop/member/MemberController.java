@@ -38,17 +38,14 @@ public class MemberController extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		String requestURI = request.getRequestURI();
+		MemberDAO memberDAO = new MemberDAO();
 		
 		switch (requestURI) {
 		case "/login.do":
 			
-//			LoginService ls = new LoginService();
-//			ls.Login(request, response);
-			
 			String memberId = request.getParameter("id");
 			String memberPwd = request.getParameter("pwd");
 			
-			MemberDAO memberDAO = new MemberDAO();
 			int loginResult = memberDAO.login(memberId, memberPwd);
 			
 			if(loginResult == 1) {
@@ -64,7 +61,7 @@ public class MemberController extends HttpServlet {
 		case "/findId.do":
 			
 			String email = request.getParameter("email");
-			System.out.println("email");
+			String findIdResult = memberDAO.findID(email);
 			
 			break;
 
