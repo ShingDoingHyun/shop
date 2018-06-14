@@ -1,4 +1,4 @@
-package shop.controller;
+package shop.member;
 
 import java.io.IOException;
 
@@ -8,23 +8,24 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import shop.member.MemberDAO;
+import shop.controller.LoginService;
 
 /**
  * Servlet implementation class Controller
  */
 @WebServlet("*.do")
-public class ControllerUsingURI extends HttpServlet {
+public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-//	String resultURI = "";
-//	RequestDispatcher rd ;
+	String resultURI = "";
+	RequestDispatcher rd ;
 	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ControllerUsingURI() {
+    public MemberController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,9 +42,28 @@ public class ControllerUsingURI extends HttpServlet {
 		switch (requestURI) {
 		case "/login.do":
 			
-			LoginService ls = new LoginService();
-			ls.Login(request, response);
-
+//			LoginService ls = new LoginService();
+//			ls.Login(request, response);
+			
+			String memberId = request.getParameter("id");
+			String memberPwd = request.getParameter("pwd");
+			
+			MemberDAO memberDAO = new MemberDAO();
+			int loginResult = memberDAO.login(memberId, memberPwd);
+			
+			if(loginResult == 1) {
+				resultURI = "/";
+				HttpSession session = request.getSession();
+				session.setAttribute("id", memberId);
+				
+			}else if(loginResult == 0 || loginResult == -1) {
+				request.setAttribute("msg", "ddsdfsdf");
+				resultURI = "/login.jsp";
+			}
+			
+		case "/item.do":
+			
+			System.out.println("item");
 			
 			break;
 
@@ -53,8 +73,8 @@ public class ControllerUsingURI extends HttpServlet {
 
 		
 		
-//		rd = request.getRequestDispatcher(resultURI);
-//		rd.forward(request, response);
+		rd = request.getRequestDispatcher(resultURI);
+		rd.forward(request, response);
 		
 		
 		
