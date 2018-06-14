@@ -22,27 +22,28 @@
     <!-- Content -->
     <div id="content">
     
-    <div id="loginForm">
+    <div id="findForm">
     	
     	
-    	<% String msg = (String)request.getAttribute("msg"); %>
-        <% if(msg != null) {%>
-        	<p id="msg"><%=msg %></p>
-        <% } else {  %>
-    		<p id = "msg"> &nbsp; </p>
+    
+    	<form action="/findPw.do" method="post">
+        	<label for="email"><b>id 입력</b></label>
+        	<input type="text" name ="id" class="logintxt">
+        	<label for="email"><b>email 입력</b></label>
+        	<input type="text" name ="email" class="logintxt">
+        	<input type="submit" name="find" value="찾기" id="findBtn">
+        </form>
+        
+
+    	<% String result = (String)request.getAttribute("result"); %>
+    	
+    	<% if(result ==  "notFound") {%>
+    		<p id = "msg"> 아이디를 찾을 수 없습니다 </p>
+        <% } else if(result!=null) {  %>
+        	<p id="msg">당신의 ID는 <%=result %> 입니다</p>
     	<% } %>
     	
-    	<form action="/login.do" method="post">
-        	<label for="id"><b>id</b></label>
-        	<input type="text" name ="id" class="logintxt">
-        	<label for="pw"><b>password</b></label>
-        	<input type="password" name="pwd" class="logintxt">
-        	<input type="submit" name="login" value="로그인" id="loginBtn">
-        	<input type="button" name="join" value="회원가입" id="joinBtn" onClick="location.href='/'">
-        </form>
-        	<a href='./findMyId.jsp'><p>아이디 찾기</p></a>
-        	<a href='./findMyPw.jsp'><p>비밀번호 찾기</p></a>
-        
+       
     
     
     </div>

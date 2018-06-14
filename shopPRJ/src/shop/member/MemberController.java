@@ -1,6 +1,7 @@
 package shop.member;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -39,28 +40,70 @@ public class MemberController extends HttpServlet {
 		String requestURI = request.getRequestURI();
 		MemberDAO memberDAO = new MemberDAO();
 		
+		String id = "";
+		String pwd = "";
+		String email = "";
+		
 		switch (requestURI) {
 		case "/login.do":
 			
-			String memberId = request.getParameter("id");
-			String memberPwd = request.getParameter("pwd");
+			id = request.getParameter("id");
+			pwd = request.getParameter("pwd");
 			
-			int loginResult = memberDAO.login(memberId, memberPwd);
+			int loginResult = memberDAO.login(id, pwd);
 			
 			if(loginResult == 1) {
 				resultURI = "/";
 				HttpSession session = request.getSession();
-				session.setAttribute("id", memberId);
+				session.setAttribute("id", id);
 				
 			}else if(loginResult == 0 || loginResult == -1) {
-				request.setAttribute("msg", "ddsdfsdf");
-				resultURI = "/login.jsp";
+				
+				request.setAttribute("msg", "아이디 또는 비밀번호가 틀렸습니다");
+				resultURI = "/member/login.jsp";
 			}
+			
+			break;
 			
 		case "/findId.do":
 			
-			String email = request.getParameter("email");
-			String findIdResult = memberDAO.findID(email);
+			email = request.getParameter("email");
+			
+			MemberDTO dto = memberDAO.findID(email);
+			String result = dto.getMemberId();
+			
+			if(result!=null) {
+				request.setAttribute("result", result);
+				resultURI = "/member/findMyId.jsp";
+			}else if (result == null) {
+				request.setAttribute("result", "notFound");
+				resultURI = "/member/findMyId.jsp";
+			}
+			
+			break;
+		
+		case "/findPw.do":
+			id = request.getParameter("id");
+			email = request.getParameter("email");
+			int chk = memberDAO.checkIDandEmail(id, email);
+			
+			if(chk == 1) {
+				
+				//이메일 발송
+				
+				
+				
+				request.setAttribute("msg", "가입하신 email로 비밀번호를 발송 하였습니다.");
+				resultURI = "/member/findMyId.jsp";
+				
+			}else if(chk == 0 || chk == -1) {
+				
+				request.setAttribute("msg", "id 또는 email 주소가 틀렸습니다");
+				resultURI = "/member/findMyId.jsp";
+			}
+			
+			
+			System.out.println("findPW!!!");
 			
 			break;
 

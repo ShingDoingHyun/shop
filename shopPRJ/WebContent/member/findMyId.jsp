@@ -32,6 +32,16 @@
         	<input type="submit" name="find" value="찾기" id="findBtn">
         </form>
         
+
+    	<% String result = (String)request.getAttribute("result"); %>
+    	
+    	<% if(result ==  "notFound") {%>
+    		<p id = "msg"> 아이디를 찾을 수 없습니다 </p>
+        <% } else if(result!=null) {  %>
+        	<p id="msg">당신의 ID는 <%=result %> 입니다</p>
+    	<% } %>
+    	
+       
     
     
     </div>
