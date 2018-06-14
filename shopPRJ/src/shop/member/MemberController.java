@@ -61,9 +61,10 @@ public class MemberController extends HttpServlet {
 				resultURI = "/login.jsp";
 			}
 			
-		case "/item.do":
+		case "/findId.do":
 			
-			System.out.println("item");
+			String email = request.getParameter("email");
+			System.out.println("email");
 			
 			break;
 

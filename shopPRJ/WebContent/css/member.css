@@ -34,6 +34,15 @@ input#joinBtn{
     cursor: pointer;
     width: 40%;
 }
+input#findBtn{
+	background-color: #8b0000;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 100px;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+}
 p#msg{
 	margin: 10px auto;
 }

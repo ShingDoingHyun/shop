@@ -6,15 +6,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-<link rel="stylesheet" href="css/login.css" type="text/css" media="all" />
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="all" />
+<link rel="stylesheet" href="../css/member.css" type="text/css" media="all" />
 
 </head>
 <body>
 <!-- Shell -->
 <div class="shell">
   <!-- Header -->
-  <%@ include file="commons/header.jspf" %>
+  <%@ include file="../commons/header.jspf" %>
   <!-- End Header -->
   <!-- Main -->
   <div id="main">
@@ -25,20 +25,11 @@
     <div id="loginForm">
     	
     	
-    	<% String msg = (String)request.getAttribute("msg"); %>
-        <% if(msg != null) {%>
-        	<p id="msg"><%=msg %></p>
-        <% } else {  %>
-    		<p id = "msg"> &nbsp; </p>
-    	<% } %>
-    	
-    	<form action="login.do" method="post">
-        	<label for="id"><b>id</b></label>
-        	<input type="text" name ="id" class="logintxt">
-        	<label for="pw"><b>password</b></label>
-        	<input type="password" name="pwd" class="logintxt">
-        	<input type="submit" name="login" value="로그인" id="loginBtn">
-        	<input type="button" name="join" value="회원가입" id="joinBtn" onClick="location.href='/'">
+    
+    	<form action="" method="post">
+        	<label for="email"><b>email 입력</b></label>
+        	<input type="text" name ="email" class="logintxt">
+        	<input type="button" name="find" value="찾기" id="findBtn" onClick="location.href='/findId.do'">
         </form>
         
     
@@ -51,7 +42,7 @@
     <!-- End Content -->
     <!-- Sidebar -->
    
-   <%@ include file="commons/sidebar.jspf" %>
+   <%@ include file="../commons/sidebar.jspf" %>
    
     <!-- End Sidebar -->
     <div class="cl">&nbsp;</div>
@@ -62,7 +53,7 @@
   <!-- End Side Full -->
   <!-- Footer -->
   
-  <%@ include file="commons/footer.jspf" %>
+  <%@ include file="../commons/footer.jspf" %>
   
   <!-- End Footer -->
 </div>

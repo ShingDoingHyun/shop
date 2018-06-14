@@ -18,7 +18,7 @@
         <li><a href="/" class="active">Home</a></li>
         
         <% if(sessionID == null){  %>
-        <li><a href="/login.jsp">Login</a></li>
+        <li><a href="http://localhost/member/login.jsp">Login</a></li>
 		<% }else { %>        
         <li><a href="/">Logout</a></li>
         	<% session.removeAttribute("id"); %>
