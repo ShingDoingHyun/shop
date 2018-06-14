@@ -35,12 +35,10 @@
         </form>
         
 
-    	<% String result = (String)request.getAttribute("result"); %>
+    	<% String msg = (String)request.getAttribute("msg"); %>
     	
-    	<% if(result ==  "notFound") {%>
-    		<p id = "msg"> 아이디를 찾을 수 없습니다 </p>
-        <% } else if(result!=null) {  %>
-        	<p id="msg">당신의 ID는 <%=result %> 입니다</p>
+    	<% if(msg != null) {%>
+    		<p id = "msg"> <%= msg %> </p>
     	<% } %>
     	
        

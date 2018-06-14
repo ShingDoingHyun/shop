@@ -3,6 +3,7 @@ package shop.member;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.mail.MessagingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -85,25 +86,34 @@ public class MemberController extends HttpServlet {
 		case "/findPw.do":
 			id = request.getParameter("id");
 			email = request.getParameter("email");
-			int chk = memberDAO.checkIDandEmail(id, email);
 			
-			if(chk == 1) {
-				
+			dto = memberDAO.getPwEmailById(id);
+			String getEmail = dto.getMemberEmail();
+			
+			if(getEmail == null) {
+				request.setAttribute("msg", "id 또는 email 주소가 틀렸습니다");
+				resultURI = "/member/findMyPw.jsp";
+			}else if(email.equals(getEmail)) {
 				//이메일 발송
+				pwd = dto.getMemberPwd();
 				
-				
+				GmailTest gmailTest = new GmailTest();
+
+				try {
+					gmailTest.sendEmail(email, pwd);
+				} catch (MessagingException e) {
+					e.printStackTrace();
+				}
+
 				
 				request.setAttribute("msg", "가입하신 email로 비밀번호를 발송 하였습니다.");
-				resultURI = "/member/findMyId.jsp";
+				resultURI = "/member/findMyPw.jsp";
 				
-			}else if(chk == 0 || chk == -1) {
-				
+			}else if(!email.equals(getEmail)) {
 				request.setAttribute("msg", "id 또는 email 주소가 틀렸습니다");
-				resultURI = "/member/findMyId.jsp";
+				resultURI = "/member/findMyPw.jsp";
 			}
 			
-			
-			System.out.println("findPW!!!");
 			
 			break;
 

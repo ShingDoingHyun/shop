@@ -66,31 +66,33 @@ public class MemberDAO {
     	
     }
     
-    //아이디와 이메일 일치여부 확인하기
-    public int checkIDandEmail(String id, String email) {
+    //아이디로 비밀번호 이메일 가져오기
+    public MemberDTO getPwEmailById(String id){
     	
-    	 String SQL = "SELECT memberEmail From member WHERE  memberId = ?";
-         try {
-         	conn = connect.getConnect();
+    	String SQL = "SELECT memberEmail, memberPwd From member WHERE  memberId = ?";
+    	MemberDTO dto = new MemberDTO();
+    	
+    	 try {
+         	 conn = connect.getConnect();
              pstmt = conn.prepareStatement(SQL);
              pstmt.setString(1, id);
              rs = pstmt.executeQuery();
              if(rs.next()){
-                 if(rs.getString(1).equals(email))
-                     return 1;    // 이메일 일치
-                 else
-                     return 0; // 이메일 불일치
+            	 dto.setMemberEmail(rs.getString(1));
+            	 dto.setMemberPwd(rs.getString(2));
+             }else {
+            	 dto = new MemberDTO();
              }
-             return -1; // 해당 ID에 대한 이메일이 없음
              
          } catch (Exception e) {
              e.printStackTrace();
          }
-         return -2; // DB 오류
+    	 
+
+    	 return dto;
+    	
     	
     }
-    
-    
     
     
     
