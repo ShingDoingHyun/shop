@@ -33,7 +33,7 @@ public class ProductController extends HttpServlet {
 		if(request.getParameter("page")!=null) {
 			page = Integer.parseInt(request.getParameter("page"));
 			if(page<=0)page=0;
-			else page= page*3;
+			else page= page*9;
 		}
 		List productList =  productDAO.getProductList(page);
 		int pageSize = productDAO.productPageSize();

@@ -11,23 +11,23 @@ import shop.connection.Connect;
 
 public class ProductDAO {
 
-	Connect connect = new Connect(); // Ä¿³Ø¼ÇÁ¤º¸ °¡Á®¿À±â
-	private Connection conn = null; // DB¿¡ Á¢±ÙÇÏ´Â °´Ã¼
+	Connect connect = new Connect(); // Ä¿ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private Connection conn = null; // DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Ã¼
 	private PreparedStatement pstmt = null; //
-	private ResultSet rs = null; // DB data¸¦ ´ãÀ» ¼ö ÀÖ´Â °´Ã¼
+	private ResultSet rs = null; // DB dataï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Ã¼
 
 	public List getProductList(int page) {
 		System.out.println(page);
-		String SQL = "SELECT * From product limit " + page + ", 3 ";
+		String SQL = "SELECT * From product limit " + page + ", 9 ";
 		try {
 			conn = connect.getConnect();
 			pstmt = conn.prepareStatement(SQL);
 			rs = pstmt.executeQuery();
 
-			List<ProductDTO> boardlist = new ArrayList<ProductDTO>(); // list¿¡ dto°´Ã¼¸¦ ´ãÀ» ÁØºñ
+			List<ProductDTO> boardlist = new ArrayList<ProductDTO>(); // listï¿½ï¿½ dtoï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½
 
-			while (rs.next()) {// ÀÐ¾î¿Â µ¥ÀÌÅÍ¸¸Å­ ¹Ýº¹
-				ProductDTO product = new ProductDTO(); // dto°´Ã¼¿¡ ´ã¾Æ list¿¡ ³Ö¾îÁØ´Ù.
+			while (rs.next()) {// ï¿½Ð¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½Å­ ï¿½Ýºï¿½
+				ProductDTO product = new ProductDTO(); // dtoï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ listï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½Ø´ï¿½.
 				product.setProductName(rs.getString("productName"));
 				product.setProductImage(rs.getString("productImage"));
 				product.setProductPrice(rs.getInt("productPrice"));
@@ -39,7 +39,7 @@ public class ProductDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null; // DB ¿À·ù
+		return null; // DB ï¿½ï¿½ï¿½ï¿½
 
 	}
 
@@ -52,7 +52,7 @@ public class ProductDAO {
 			rs = pstmt.executeQuery();
 		
 			int pageSize=0;
-			while (rs.next()) {// ÀÐ¾î¿Â µ¥ÀÌÅÍ¸¸Å­ ¹Ýº¹
+			while (rs.next()) {// ï¿½Ð¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½Å­ ï¿½Ýºï¿½
 				pageSize = rs.getInt(1);
 			}
 			return pageSize;

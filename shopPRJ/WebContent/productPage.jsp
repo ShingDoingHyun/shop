@@ -64,23 +64,24 @@
 	    	if(request.getAttribute("pageSize")!=null)
 	    		pageSize = Integer.parseInt( request.getAttribute("pageSize").toString()); 
 	 
-	    	int maxPage =(int)(pageSize/3);
+	    	int maxPages =(int)(pageSize/9);
+	    	int maxPage=0;
 	    	if(pages>=5){
 	    		out.print("<a href='productList?page="+(((pages/5)-1)*5)+"'>");
 	    		out.print("[<]");
 	    		out.print("</a>");
 	    	}
 	    	
-	    	int pageNums =  (maxPage/5)-(pages/5);
+	    	int pageNums =  (maxPages/5)-(pages/5);
 	    	if(pageNums>0)maxPage=5;
-	    	else maxPage = (maxPage-(pages/5)*5)+1;
+	    	else maxPage = (maxPages-(pages/5)*5)+1;
 
 	    	for(int pageNum=(pages/5)*5; pageNum < ((pages/5)*5)+maxPage; pageNum++){
 	    		out.print("<a href='productList?page="+(pageNum)+"'>");
 	    		out.print("["+(pageNum+1)+"]");
 	    		out.print("</a>");
 	    	} 
-	    	if((maxPage/5)>(pages/5)){
+	    	if((maxPages/5)>(pages/5)){
 	    		out.print("<a href='productList?page="+(((pages/5)+1)*5)+"'>");
 	    		out.print("[>]");
 	    		out.print("</a>");
