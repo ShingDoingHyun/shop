@@ -5,25 +5,25 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class MemberDAO extends DAO {
+public class MemberDAO {
 
-//	private Connection conn;            // DB에 접근하는 객체
-//    private PreparedStatement pstmt;    // 
-//    private ResultSet rs;                // DB data를 담을 수 있는 객체  (Ctrl + shift + 'o') -> auto import
+	private Connection conn;            // DB에 접근하는 객체
+    private PreparedStatement pstmt;    // 
+    private ResultSet rs;                // DB data를 담을 수 있는 객체  (Ctrl + shift + 'o') -> auto import
     
     public MemberDAO(){
     	super();
-//        try {
-//            String dbURL = "jdbc:mysql://localhost:3306/project";
-//            String dbID = "admin";
-//            String dbPassword = "1234";
-//            Class.forName("com.mysql.jdbc.Driver");
-//            conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
-//            
-//        } catch (Exception e) {
-//        	System.out.println("오류");
-//            e.printStackTrace();
-//        }
+        try {
+            String dbURL = "jdbc:mysql://localhost:3306/project";
+            String dbID = "admin";
+            String dbPassword = "1234";
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+            
+        } catch (Exception e) {
+        	System.out.println("오류");
+            e.printStackTrace();
+        }
         
     }
     

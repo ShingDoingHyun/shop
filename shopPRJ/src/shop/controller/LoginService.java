@@ -22,14 +22,14 @@ public class LoginService {
 		MemberDAO memberDAO = new MemberDAO();
 		int loginResult = memberDAO.login(memberId, memberPwd);
 		
-		//로그인 성공
+		//濡쒓렇�씤 �꽦怨�
 		if(loginResult == 1) {
 			resultURI = "/";
 			HttpSession session = request.getSession();
 			session.setAttribute("id", memberId);
 			
 		}else if(loginResult == 0 || loginResult == -1) {
-			request.setAttribute("msg", "아이디 또는 비밀 번호가 틀렸습니다");
+			request.setAttribute("msg", "ddsdfsdf");
 			resultURI = "/login.jsp";
 		}
 		
