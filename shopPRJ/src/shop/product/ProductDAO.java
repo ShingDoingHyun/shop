@@ -7,20 +7,16 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import shop.DAO;
 import shop.connection.Connect;
 
-public class ProductDAO {
-
-	Connect connect = new Connect(); // Ŀ�ؼ����� ��������
-	private Connection conn = null; // DB�� �����ϴ� ��ü
-	private PreparedStatement pstmt = null; //
-	private ResultSet rs = null; // DB data�� ���� �� �ִ� ��ü
+public class ProductDAO extends DAO {
 
 	public List getProductList(int page) {
-		System.out.println(page);
+
 		String SQL = "SELECT * From product limit " + page + ", 9 ";
 		try {
-			conn = connect.getConnect();
+			conn = getConnect();
 			pstmt = conn.prepareStatement(SQL);
 			rs = pstmt.executeQuery();
 
@@ -36,10 +32,13 @@ public class ProductDAO {
 
 			return boardlist;
 
-		} catch (Exception e) {
+		} catch (Exception e) {			
 			e.printStackTrace();
+			return null; // DB ����
+		}finally{
+			close();
 		}
-		return null; // DB ����
+		
 
 	}
 
@@ -47,7 +46,7 @@ public class ProductDAO {
 
 		String SQL = "SELECT count(*) From product";
 		try {
-			conn = connect.getConnect();
+			conn = getConnect();
 			pstmt = conn.prepareStatement(SQL);
 			rs = pstmt.executeQuery();
 		

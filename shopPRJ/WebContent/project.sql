@@ -1,3 +1,6 @@
+ALTER DATABASE project DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+
 create table member(
 	memberNo int auto_increment PRIMARY KEY,
     memberId VARCHAR(50) NOT NULL,
