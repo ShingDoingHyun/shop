@@ -41,12 +41,14 @@
 	    		trChk++;
 	    		if(trChk==0){%>
 		    	<tr>
-				<%}%>				
-	    			<td width=250  height=350 >
-	    			<img width=250 height=250 align="middle" src='image/<%=product.getProductImage()%>'><br>
-	    			<p style='text-align:center'><%=product.getProductName()%></p>
-	    			<p style='text-align:center'><%=product.getProductPrice()%></p>
-	    			</td>
+				<%}%>
+					<a href="">		
+		    			<td width=240  height=350 >
+			    			<img width=240 height=300 align="middle" src='image/<%=product.getProductImage()%>'><br>
+			    			<p style='text-align:center'><%=product.getProductName()%></p>
+			    			<p style='text-align:center'><%=product.getProductPrice()%></p>
+		    			</td>
+	    			</a>		
 	    		<% 
 	    		if(trChk>=3){
 		    		trChk=0;%>
