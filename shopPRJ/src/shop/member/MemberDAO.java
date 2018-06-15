@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import shop.connection.Connect;
@@ -34,6 +35,11 @@ public class MemberDAO {
             
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+        	
+        	if(rs != null) try{rs.close();}catch(SQLException sqle){}            // Resultset 객체 해제
+    		if(pstmt != null) try{pstmt.close();}catch(SQLException sqle){}   // PreparedStatement 객체 해제
+    		if(conn != null) try{conn.close();}catch(SQLException sqle){}   // Connection 해제
         }
         return -2; // DB 오류
         
@@ -59,6 +65,11 @@ public class MemberDAO {
              
          } catch (Exception e) {
              e.printStackTrace();
+         } finally {
+         	
+         	if(rs != null) try{rs.close();}catch(SQLException sqle){}            // Resultset 객체 해제
+     		if(pstmt != null) try{pstmt.close();}catch(SQLException sqle){}   // PreparedStatement 객체 해제
+     		if(conn != null) try{conn.close();}catch(SQLException sqle){}   // Connection 해제
          }
     	 
 
@@ -86,6 +97,11 @@ public class MemberDAO {
              
          } catch (Exception e) {
              e.printStackTrace();
+         } finally {
+         	
+         	if(rs != null) try{rs.close();}catch(SQLException sqle){}            // Resultset 객체 해제
+     		if(pstmt != null) try{pstmt.close();}catch(SQLException sqle){}   // PreparedStatement 객체 해제
+     		if(conn != null) try{conn.close();}catch(SQLException sqle){}   // Connection 해제
          }
     	 
 
