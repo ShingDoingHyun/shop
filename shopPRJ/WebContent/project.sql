@@ -6,8 +6,11 @@ create table member(
     memberAge int NOT NULL,
     memberGender boolean NOT NULL,
     memberPhone VARCHAR(30) NOT NULL,
-    memberAdress VARCHAR(200) NOT NULL
+    memberAdress VARCHAR(200) NOT NULL,
+    memberEmail VARCHAR(100) NOT NULL,
+    CONSTRAINT memberEmail UNIQUE (memberEmail)
 );
+
 
 drop table member;
 
