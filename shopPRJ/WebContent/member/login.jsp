@@ -40,8 +40,8 @@
         	<input type="submit" name="login" value="로그인" id="loginBtn">
         	<input type="button" name="join" value="회원가입" id="joinBtn" onClick="location.href='/'">
         </form>
-        	<a href='/member/findMyId.jsp'><p>아이디 찾기</p></a>
-        	<a href='/member/findMyPw.jsp'><p>비밀번호 찾기</p></a>
+        	<a href='/member/findMyId.jsp' class="bul">아이디 찾기</a>
+        	<a href='/member/findMyPw.jsp' class="bul">비밀번호 찾기</a>
         
     
     
