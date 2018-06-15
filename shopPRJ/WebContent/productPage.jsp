@@ -9,7 +9,17 @@
 <title>Insert title here</title>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-
+<style>
+img{
+	width:220px;
+ 	height:290px;
+ 	align:center;
+ 	margin:10px;
+}
+a{
+	text-decoration:none;
+}
+</style>
 </head>
 <body>
 <!-- Shell -->
@@ -27,8 +37,7 @@
     <br>
     <br>
     <br>
-    <h1>Product</h1>
-    	<br>
+    <h1>&nbsp;&nbsp;전체상품</h1>
     	<br>
     	<br>
     	<br>
@@ -41,14 +50,19 @@
 	    		trChk++;
 	    		if(trChk==0){%>
 		    	<tr>
-				<%}%>
-					<a href="">		
+				<%}
+				
+	    		String str = String.format("%,d", product.getProductPrice());
+				%>
+					
 		    			<td width=240  height=350 >
-			    			<img width=240 height=300 align="middle" src='image/<%=product.getProductImage()%>'><br>
-			    			<p style='text-align:center'><%=product.getProductName()%></p>
-			    			<p style='text-align:center'><%=product.getProductPrice()%></p>
+		    				<a href="detail.jsp">	
+				    			<img  src='image/<%=product.getProductImage()%>0.jpg'><br>
+				    			<p style='text-align:center'><%=product.getProductName()%></p>
+				    			<p style='text-align:center'><%=str%>￦</p>
+			    			</a>	
 		    			</td>
-	    			</a>		
+	    			
 	    		<% 
 	    		if(trChk>=3){
 		    		trChk=0;%>
