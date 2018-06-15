@@ -1,27 +1,16 @@
 package shop.member;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
+import shop.DAO;
 
-import shop.connection.Connect;
+public class MemberDAO extends DAO {
 
-public class MemberDAO {
-
-	
-	Connect connect = new Connect();		//커넥션정보 가져오기
-	private Connection conn=null;            // DB에 접근하는 객체
-    private PreparedStatement pstmt=null;    // 
-    private ResultSet rs=null;                // DB data를 담을 수 있는 객체
-    
     //로그인
     public int login(String memberId, String memberPwd) {
         String SQL = "SELECT memberPwd From member WHERE  memberId = ?";
         try {
-        	conn = connect.getConnect();
+        	//conn = connect.getConnect();
+        	conn = getConnect();
             pstmt = conn.prepareStatement(SQL);
             pstmt.setString(1, memberId);
             rs = pstmt.executeQuery();
@@ -36,10 +25,7 @@ public class MemberDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-        	
-        	if(rs != null) try{rs.close();}catch(SQLException sqle){}            // Resultset 객체 해제
-    		if(pstmt != null) try{pstmt.close();}catch(SQLException sqle){}   // PreparedStatement 객체 해제
-    		if(conn != null) try{conn.close();}catch(SQLException sqle){}   // Connection 해제
+        	close();
         }
         return -2; // DB 오류
         
@@ -53,7 +39,7 @@ public class MemberDAO {
     	MemberDTO dto = new MemberDTO();
     	
     	 try {
-         	conn = connect.getConnect();
+         	conn = getConnect();
              pstmt = conn.prepareStatement(SQL);
              pstmt.setString(1, email);
              rs = pstmt.executeQuery();
@@ -66,10 +52,7 @@ public class MemberDAO {
          } catch (Exception e) {
              e.printStackTrace();
          } finally {
-         	
-         	if(rs != null) try{rs.close();}catch(SQLException sqle){}            // Resultset 객체 해제
-     		if(pstmt != null) try{pstmt.close();}catch(SQLException sqle){}   // PreparedStatement 객체 해제
-     		if(conn != null) try{conn.close();}catch(SQLException sqle){}   // Connection 해제
+        	 close();
          }
     	 
 
@@ -84,7 +67,7 @@ public class MemberDAO {
     	MemberDTO dto = new MemberDTO();
     	
     	 try {
-         	 conn = connect.getConnect();
+         	 conn = getConnect();
              pstmt = conn.prepareStatement(SQL);
              pstmt.setString(1, id);
              rs = pstmt.executeQuery();
@@ -98,10 +81,7 @@ public class MemberDAO {
          } catch (Exception e) {
              e.printStackTrace();
          } finally {
-         	
-         	if(rs != null) try{rs.close();}catch(SQLException sqle){}            // Resultset 객체 해제
-     		if(pstmt != null) try{pstmt.close();}catch(SQLException sqle){}   // PreparedStatement 객체 해제
-     		if(conn != null) try{conn.close();}catch(SQLException sqle){}   // Connection 해제
+        	 close();
          }
     	 
 
