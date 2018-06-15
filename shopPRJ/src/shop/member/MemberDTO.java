@@ -9,6 +9,7 @@ public class MemberDTO {
 	private String memberGender;
 	private String memberPhone;
 	private String memberAdress;
+	private String memberEmail;
 	
 	public int getMemberNo() {
 		return memberNo;
@@ -57,6 +58,12 @@ public class MemberDTO {
 	}
 	public void setMemberAdress(String memberAdress) {
 		this.memberAdress = memberAdress;
+	}
+	public String getMemberEmail() {
+		return memberEmail;
+	}
+	public void setMemberEmail(String memberEmail) {
+		this.memberEmail = memberEmail;
 	}
 	
 	

@@ -26,19 +26,19 @@
     	
     	
     
-    	<form action="/findId.do" method="post">
+    	<form action="/findPw.do" method="post">
+        	<label for="email"><b>id 입력</b></label>
+        	<input type="text" name ="id" class="logintxt">
         	<label for="email"><b>email 입력</b></label>
         	<input type="text" name ="email" class="logintxt">
         	<input type="submit" name="find" value="찾기" id="findBtn">
         </form>
         
 
-    	<% String result = (String)request.getAttribute("result"); %>
+    	<% String msg = (String)request.getAttribute("msg"); %>
     	
-    	<% if(result ==  "notFound") {%>
-    		<p id = "msg"> 아이디를 찾을 수 없습니다 </p>
-        <% } else if(result!=null) {  %>
-        	<p id="msg">당신의 ID는 <%=result %> 입니다</p>
+    	<% if(msg != null) {%>
+    		<p id = "msg"> <%= msg %> </p>
     	<% } %>
     	
        

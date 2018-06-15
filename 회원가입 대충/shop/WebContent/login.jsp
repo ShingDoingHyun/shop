@@ -20,18 +20,14 @@
     <div class="cl">&nbsp;</div>
     <!-- Content -->
     <div id="content">
-    	<form action="login.do" method="post">
-        	<label for="id">id:</label>
-        	<input type="text" name ="id">
-        	<label for="pw">pw:</label>
-        	<input type="password" name="pwd">
-        	<input type="submit" name="login" value="로그인">
-        	<input type="button" name="join" value="회원가입">
-        </form>
-        <% String msg = (String)request.getAttribute("msg"); %>
-        <% if(msg != null) {%>
-        	<p><%=msg %></p>
-        <% } %>
+    <form action="MemberController">
+        <label for="id">id:</label>
+        <input type="text" name="id">
+        <label for="pw">pw:</label>
+        <input type="text" name="pw">
+        <input type="submit">
+    </form>
+        
     </div>
     <!-- End Content -->
     <!-- Sidebar -->

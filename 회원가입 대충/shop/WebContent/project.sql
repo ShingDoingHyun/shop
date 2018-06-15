@@ -1,32 +1,14 @@
-ALTER DATABASE project DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-
-
 create table member(
 	memberNo int auto_increment PRIMARY KEY,
     memberId VARCHAR(50) NOT NULL,
-    memberPwd VARCHAR(50) NOT NULL,
-    memberName VARCHAR(20) NOT NULL,
-    memberAge int NOT NULL,
-    memberGender boolean NOT NULL,
-    memberPhone VARCHAR(30) NOT NULL,
-    memberAdress VARCHAR(200) NOT NULL,
-    memberEmail VARCHAR(100) NOT NULL,
-    CONSTRAINT memberEmail UNIQUE (memberEmail)
+    memberPwd VARCHAR(100) NOT NULL
+--    memberName VARCHAR(20) NOT NULL,
+--    memberAge int NOT NULL,
+--    memberGender boolean NOT NULL,
+--    memberPhone VARCHAR(30) NOT NULL,
+--    memberAdress VARCHAR(200) NOT NULL
 );
-
-
 drop table member;
-
-insert into member (member_name) values ('test');
-
-insert into member (member_name) values ('test2');
-
-insert into member values(1,'asdf','1234','john','20',true,'01012345678','seoul jongnogu');
-update member set memberId = 'asdf';
-
-select * from member;
-
-
 
 create table product(
 	productNo int auto_increment PRIMARY KEY,
@@ -65,3 +47,8 @@ insert into product (productName, productImage, productPrice) values ('test19' ,
 
 SELECT count(*) From product;
 SELECT * From product limit 4, 3;
+insert into member (memberId) values ('test');
+
+insert into member (memberId) values ('test2');
+select * from member;
+yongjun0118
