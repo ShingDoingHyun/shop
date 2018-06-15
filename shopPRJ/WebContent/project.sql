@@ -21,7 +21,8 @@ insert into member (member_name) values ('test');
 
 insert into member (member_name) values ('test2');
 
-insert into member values(1,'asdf','1234','john','20',true,'01012345678','seoul jongnogu');
+insert into member (memberId, memberPwd, memberName, memberAge, memberGender, memberPhone,  memberAdress, memberEmail)
+values('asdf','1234','john','20',true,'01012345678','seoul jongnogu', 'asd@naver.com');
 update member set memberId = 'asdf';
 
 select * from member;
