@@ -22,14 +22,14 @@ insert into member (member_name) values ('test');
 insert into member (member_name) values ('test2');
 
 insert into member (memberId, memberPwd, memberName, memberAge, memberGender, memberPhone,  memberAdress, memberEmail)
-values('asdf','1234','john','20',true,'01012345678','서울 종로구', 'parksj3406@gmail.com');
+values('poiu','1234','john','20',true,'01012345678','서울 종로구', 'qqqrrr@gmail.com');
 update member set memberId = 'asdf';
 
 select * from member;
 
 
 
-create table product(
+create table project.product(
 	productNo int auto_increment PRIMARY KEY,
 	productName VARCHAR(200) NOT NULL,
 	productDetail text ,
@@ -38,7 +38,7 @@ create table product(
 	productPrice int,
 	productOpt1 int,
 	productOpt2 int
-);
+)default character set utf8 collate utf8_general_ci;
 
 
 drop table product;
