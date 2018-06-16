@@ -12,15 +12,19 @@
             <label>Category</label>
             <select class="field">
               <option value="">-- Select Category --</option>
+              <option value="men">-- 남성복 --</option>
+              <option value="women">-- 여성복 --</option>
             </select>
             <div class="inline-field">
               <label>Price</label>
               <select class="field small-field">
-                <option value="">$10</option>
+                <option value="10">10</option>
               </select>
               <label>to:</label>
               <select class="field small-field">
-                <option value="">$50</option>
+                <option value="50000">50000</option>
+                <option value="100000">100000</option>
+                <option value="150000">150000</option>
               </select>
             </div>
             <input type="submit" class="search-submit" value="Search" />
