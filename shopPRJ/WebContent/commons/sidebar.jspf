@@ -39,8 +39,8 @@
         <h2>Categories <span></span></h2>
         <div class="box-content">
           <ul>
-            <li><a href="/item.do?category=1">남성복</a></li>
-            <li><a href="#">여성복</a></li>
+            <li><a href="/productList?category=men">남성복</a></li>
+            <li><a href="/productList?category=women">여성복</a></li>
             <!--  <li><a href="#">Category 3</a></li>
             <li><a href="#">Category 4</a></li>
             <li><a href="#">Category 5</a></li>

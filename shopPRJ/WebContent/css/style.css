@@ -67,7 +67,7 @@ a.bul { background:url(images/bul.gif) no-repeat 0 center; padding-left:10px;}
 .search .inline-field .field { display:inline; margin:0; }
 .search input.field { width:206px; }
 .search select.field { width:212px; }
-.search select.small-field { width:50px; }
+.search select.small-field { width:70px; }
 
 .search-submit { width:70px; background:#8b0000; border:0; color:#fff; height:27px; display:block; line-height:26px; cursor:pointer; margin:12px 0 10px 0;}
 
