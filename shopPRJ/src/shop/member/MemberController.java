@@ -62,6 +62,9 @@ public class MemberController extends HttpServlet {
 				
 				request.setAttribute("msg", "아이디 또는 비밀번호가 틀렸습니다");
 				resultURI = "/member/login.jsp";
+			} else if(loginResult == -2) {
+				request.setAttribute("msg", "DB검색 오류");
+				resultURI = "/member/login.jsp";
 			}
 			
 			break;
