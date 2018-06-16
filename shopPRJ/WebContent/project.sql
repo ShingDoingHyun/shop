@@ -22,7 +22,7 @@ insert into member (member_name) values ('test');
 insert into member (member_name) values ('test2');
 
 insert into member (memberId, memberPwd, memberName, memberAge, memberGender, memberPhone,  memberAdress, memberEmail)
-values('poiu','1234','john','20',true,'01012345678','서울 종로구', 'qqqrrr@gmail.com');
+values('asdf','1234','john','20',true,'01012345678','서울 종로구', 'parksj3406@gmail.com');
 update member set memberId = 'asdf';
 
 select * from member;
