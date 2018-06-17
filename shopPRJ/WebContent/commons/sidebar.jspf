@@ -6,25 +6,35 @@
       <div class="box search">
         <h2>Search by <span></span></h2>
         <div class="box-content">
-          <form action="#" method="post">
+          <form action="#" method="get">
             <label>Keyword</label>
+            <input type="hidden" />
             <input type="text" class="field" />
             <label>Category</label>
-            <select class="field">
-              <option value="">-- Select Category --</option>
-              <option value="/productList/category=men">-- 남성복 --</option>
-              <option value="women">-- 여성복 --</option>
+            <select class="field" name="category">
+            
+              <%  String category = "";
+              		if(request.getParameter("category")!=null) category = request.getParameter("category"); %>
+              <option value="" <%=category.equals("") ? "selected" : " " %> >-- 전체 카테고리 --</option>
+              <option value="men" <%=category.equals("men") ? "selected" : " " %> >-- 남성복 --</option>
+              <option value="women" <%=category.equals("women") ? "selected" : " " %> >-- 여성복 --</option>
             </select>
             <div class="inline-field">
               <label>Price</label>
-              <select class="field small-field">
-                <option value="10">10</option>
+              <select class="field small-field" name="row_price">
+              <%  String row = "";
+              		if(request.getParameter("row_price")!=null) row = request.getParameter("row_price"); %>
+                <option value="10000" <%=row.equals("10000") ? "selected" : " " %> >10000</option>
+                <option value="50000" <%=row.equals("50000") ? "selected" : " " %>>50000</option>
+                <option value="100000 <%=row.equals("100000") ? "selected" : " " %>">100000</option>
               </select>
               <label>to:</label>
-              <select class="field small-field">
-                <option value="50000">50000</option>
-                <option value="100000">100000</option>
-                <option value="150000">150000</option>
+              <select class="field small-field" name="high_price">
+               <%  String high = "";
+              		if(request.getParameter("high_price")!=null) high = request.getParameter("high_price"); %><!-- 해당 금액을 선택시 값유지 -->
+                <option value="50000" <%=high.equals("50000") ? "selected" : " " %>>50000</option>
+                <option value="100000" <%=high.equals("100000") ? "selected" : " " %>>100000</option>
+                <option value="150000"<%=high.equals("150000") ? "selected" : " " %>>150000</option>
               </select>
             </div>
             <input type="submit" class="search-submit" value="Search" />
@@ -39,6 +49,7 @@
         <h2>Categories <span></span></h2>
         <div class="box-content">
           <ul>
+          <li><a href="/productList?">전체상품</a></li>
             <li><a href="/productList?category=men">남성복</a></li>
             <li><a href="/productList?category=women">여성복</a></li>
             <!--  <li><a href="#">Category 3</a></li>

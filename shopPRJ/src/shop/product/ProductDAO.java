@@ -12,12 +12,18 @@ import shop.connection.Connect;
 
 public class ProductDAO extends DAO {
 
-	public List getProductList(int page, String category) {
+	public List getProductList(int page, String category, String row_price, String high_price) {
 
-		String SQL = "SELECT * From product ";
+		String SQL = "SELECT * From product where 1 ";
 				
-		if(!category.equals("")) {
-			SQL+= " where productType='"+category+"' ";
+		if(!category.equals("")) {//카테고리 선택시
+			SQL+= " and productType='"+category+"' ";
+		}
+		
+		if(!row_price.equals("") && !high_price.equals("")) {
+			int row = Integer.parseInt(row_price);
+			int high = Integer.parseInt(high_price);
+			SQL+= " and productPrice BETWEEN "+row+" AND "+high+" ";
 		}
 				
 		SQL += " limit " + page + ", 9 ";//page부터 9개 목록 뽑아내기

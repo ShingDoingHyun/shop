@@ -36,6 +36,9 @@ public class ProductController extends HttpServlet {
 		case "/productList":
 			int page = 0;//기본페이지일땐 0
 			String category= ""; //카테고리 선택시
+			String row_price="";
+			String high_price="";
+			String path = "/product/productPage.jsp?";
 			if (request.getParameter("page") != null) {
 				page = Integer.parseInt(request.getParameter("page"));
 				if (page < 0)//페이지가 있으면 9를 곱해준다.
@@ -43,15 +46,19 @@ public class ProductController extends HttpServlet {
 			}
 			if (request.getParameter("category") != null) {
 				category = request.getParameter("category");
-				if (page < 0)//페이지가 있으면 9를 곱해준다.
-					page = page * 9;
+				path+= "category="+category+"&";
 			}
-			List productList = productDAO.getProductList(page, category);//출력할 페이지의 목록을 뽑는다.
+			if(request.getParameter("row_price") != null  && request.getParameter("high_price") !=null) {
+				row_price = request.getParameter("row_price"); 
+				high_price = request.getParameter("high_price");
+				path+= "row_price="+row_price+"&high_price="+high_price;
+			}
+			List productList = productDAO.getProductList(page, category, row_price, high_price);//출력할 페이지의 목록을 뽑는다.
 			int pageSize = productDAO.productPageSize();//페이지의 크기를 뽑아낸다
 
 			request.setAttribute("productList", productList);
 			request.setAttribute("pageSize", pageSize);
-			RequestDispatcher reqDis = request.getRequestDispatcher("/product/productPage.jsp");
+			RequestDispatcher reqDis = request.getRequestDispatcher(path);
 			reqDis.forward(request, response);
 			break;
 		case "/productDetail":
