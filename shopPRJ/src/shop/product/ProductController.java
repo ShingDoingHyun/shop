@@ -35,12 +35,18 @@ public class ProductController extends HttpServlet {
 		switch (requestURI) {
 		case "/productList":
 			int page = 0;//기본페이지일땐 0
+			String category= ""; //카테고리 선택시
 			if (request.getParameter("page") != null) {
 				page = Integer.parseInt(request.getParameter("page"));
 				if (page < 0)//페이지가 있으면 9를 곱해준다.
 					page = page * 9;
 			}
-			List productList = productDAO.getProductList(page);//출력할 페이지의 목록을 뽑는다.
+			if (request.getParameter("category") != null) {
+				category = request.getParameter("category");
+				if (page < 0)//페이지가 있으면 9를 곱해준다.
+					page = page * 9;
+			}
+			List productList = productDAO.getProductList(page, category);//출력할 페이지의 목록을 뽑는다.
 			int pageSize = productDAO.productPageSize();//페이지의 크기를 뽑아낸다
 
 			request.setAttribute("productList", productList);

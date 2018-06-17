@@ -12,7 +12,7 @@
             <label>Category</label>
             <select class="field">
               <option value="">-- Select Category --</option>
-              <option value="men">-- 남성복 --</option>
+              <option value="/productList/category=men">-- 남성복 --</option>
               <option value="women">-- 여성복 --</option>
             </select>
             <div class="inline-field">

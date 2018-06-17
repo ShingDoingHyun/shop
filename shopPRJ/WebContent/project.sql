@@ -43,7 +43,7 @@ create table project.product(
 
 drop table product;
 select * from product;
-
+SELECT * From product  where productType='men'  limit 0, 9 
 insert into product (productName, productDetail, productImage, productPrice, productType)
 values ('네이비 남성 솔리드 COOLHAN 한지 티셔츠' ,
 '한지 소재를 사용한 베이직한 솔리드 반팔 칼라 티셔츠입니다. 친환경 소재를 사용하여 항균, 소취, 속건 기능성이 더해진 제품입니다. 스트레치가 좋아 활동하기 편하며 단색 디자인으로 활용도 높은 아이템입니다.' , 

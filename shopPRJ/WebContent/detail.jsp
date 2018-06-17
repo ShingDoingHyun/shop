@@ -273,7 +273,7 @@ element.style {
 	<li class="p"></li> 
 	</ul>
 	</div>-->
-	
+	<%String price = String.format("%,d", productDTO.getProductPrice());//금액 ,찍기 %>
 	<h3> <span class="displaynone">(해외배송 가능상품)</span>
 	</h3>
 	<div class="xans-element- xans-product xans-product-detaildesign"><table border="1" summary="">
@@ -285,7 +285,7 @@ element.style {
 	</tr>
 	<tr class=" xans-record-">
 	<td>
-	<b><span style="font-size:12px;color:#000000;">PRICE</span></b> <span style="font-size:12px;color:#000000;"><strong id="span_product_price_text">KRW <%=String.format("%,d", productDTO.getProductPrice()) %> </strong><input id="product_price" name="product_price" value="" type="hidden" /></span></td>
+	<b><span style="font-size:12px;color:#000000;">PRICE</span></b> <span style="font-size:12px;color:#000000;"><strong id="span_product_price_text">KRW <%=price %> </strong><input id="product_price" name="product_price" value="" type="hidden" /></span></td>
 	</tr>
 	<tr class=" xans-record-">
 	<td>
@@ -343,14 +343,12 @@ element.style {
 	<td>KI 메종드파리 반팔티</td>
 	<td>
 	<span class="quantity">
-	<input id="quantity" name="quantity_name" style="" value="0" type="text" /><a href="#none"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/product/btn_count_up.gif" alt="수량증가" class="QuantityUp up"/></a>
-
-	<a href="#none"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/product/btn_count_down.gif" alt="수량감소" class="QuantityDown down"/></a>
+	<input id="quantity" name="quantity_name" style="" value="0" type="text" /><a href="#none">
 
 	</span>
 	</td>
 	<td class="right">
-	<span class="quantity_price">17600</span> <span class="mileage ">(<img src="//img.echosting.cafe24.com/design/skin/admin/ko_KR/ico_product_point.gif"/>  <span class="mileage_price">176</span>)</span>
+	<span class="quantity_price"><%=price%></span> <span class="mileage ">(<img src="//img.echosting.cafe24.com/design/skin/admin/ko_KR/ico_product_point.gif"/>  <span class="mileage_price">176</span>)</span>
 
 	</td>
 	</tr></tbody>

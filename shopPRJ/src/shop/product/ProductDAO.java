@@ -12,9 +12,16 @@ import shop.connection.Connect;
 
 public class ProductDAO extends DAO {
 
-	public List getProductList(int page) {
+	public List getProductList(int page, String category) {
 
-		String SQL = "SELECT * From product limit " + page + ", 9 ";//page부터 9개 목록 뽑아내기
+		String SQL = "SELECT * From product ";
+				
+		if(!category.equals("")) {
+			SQL+= " where productType='"+category+"' ";
+		}
+				
+		SQL += " limit " + page + ", 9 ";//page부터 9개 목록 뽑아내기
+		System.out.println(SQL);
 		try {
 			conn = getConnect();
 			pstmt = conn.prepareStatement(SQL);
