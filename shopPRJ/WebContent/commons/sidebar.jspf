@@ -6,10 +6,10 @@
       <div class="box search">
         <h2>Search by <span></span></h2>
         <div class="box-content">
-          <form action="#" method="get">
+          <form action="/productList" method="get">
             <label>Keyword</label>
             <input type="hidden" />
-            <input type="text" class="field" />
+            <input type="text" class="field" name="keyword" value="<%=keyword%>"/>
             <label>Category</label>
             <select class="field" name="category">
             <!-- 헤더에서 불러옴 에러아님 -->
@@ -22,18 +22,16 @@
               <select class="field small-field" name="row_price">
               <option value="10000" <%=row.equals("10000") ? "selected" : " " %> >10000</option>
                 <option value="50000" <%=row.equals("50000") ? "selected" : " " %>>50000</option>
-                <option value="100000 <%=row.equals("100000") ? "selected" : " " %>">100000</option>
+                <option value="100000" <%=row.equals("100000") ? "selected" : " " %>">100000</option>
               </select>
               <label>to:</label>
               <select class="field small-field" name="high_price">
-               <option value="50000" <%=high.equals("50000") ? "selected" : " " %>>50000</option>
-                <option value="100000" <%=high.equals("100000") ? "selected" : " " %>>100000</option>
-                <option value="150000"<%=high.equals("150000") ? "selected" : " " %>>150000</option>
+               <option value="100000" <%=high.equals("100000") ? "selected" : " " %>>100000</option>
+                <option value="150000" <%=high.equals("150000") ? "selected" : " " %>>150000</option>
+                <option value="200000"<%=high.equals("200000") ? "selected" : " " %>>200000</option>
               </select>
             </div>
             <input type="submit" class="search-submit" value="Search" />
-            <p> <a href="#" class="bul">Advanced search</a><br />
-              <a href="#" class="bul">Contact Customer Support</a> </p>
           </form>
         </div>
       </div>
@@ -62,4 +60,5 @@
       </div>
       <!-- End Categories -->
     </div>
+    
     <!-- End Sidebar -->

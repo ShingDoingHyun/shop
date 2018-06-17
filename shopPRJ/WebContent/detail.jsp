@@ -274,6 +274,7 @@ element.style {
 	</ul>
 	</div>-->
 	<%String price = String.format("%,d", productDTO.getProductPrice());//금액 ,찍기 %>
+	<%String point = String.format("%,d", productDTO.getProductPrice()/100);   %>
 	<h3> <span class="displaynone">(해외배송 가능상품)</span>
 	</h3>
 	<div class="xans-element- xans-product xans-product-detaildesign"><table border="1" summary="">
@@ -289,7 +290,7 @@ element.style {
 	</tr>
 	<tr class=" xans-record-">
 	<td>
-	<b><span style="font-size:12px;color:#000000;">POINT</span></b> <span style="font-size:12px;color:#000000;"><span id="span_mileage_text">176원 (1%)</p></span></td>
+	<b><span style="font-size:12px;color:#000000;">POINT</span></b> <span style="font-size:12px;color:#000000;"><span id="span_mileage_text"><%=point %>원 (1%)</p></span></td>
 	</tr>
 	<tr style="display:none;" class=" xans-record-">
 	<td>
@@ -348,7 +349,7 @@ element.style {
 	</span>
 	</td>
 	<td class="right">
-	<span class="quantity_price"><%=price%></span> <span class="mileage ">(<img src="//img.echosting.cafe24.com/design/skin/admin/ko_KR/ico_product_point.gif"/>  <span class="mileage_price">176</span>)</span>
+	<span class="quantity_price"><%=price%></span> <span class="mileage ">(<img src="//img.echosting.cafe24.com/design/skin/admin/ko_KR/ico_product_point.gif"/>  <span class="mileage_price"><%=point %></span>)</span>
 
 	</td>
 	</tr></tbody>
@@ -375,7 +376,7 @@ element.style {
 	</tr --></tbody>
 	<!-- //참고 --><tfoot><tr>
 	<td colspan="3"><div class="tfoot">
-	<strong>Total :</strong><span class="total"> <em>0</em></span>
+	<strong>Total :</strong><span class="total"> <em id="total">0</em></span>
 	</div></td>
 	</tr></tfoot>
 	</table>
@@ -469,4 +470,14 @@ element.style {
         j.preventDefault();
     });
 })(jQuery);
+
+$("#quantity").change(function(){//토탈가격 변경
+
+	$("#total").text( addComma($(this).val()*<%=productDTO.getProductPrice()%> ));
+})
+
+function addComma(num) {//세번째자리 콤마
+  var regexp = /\B(?=(\d{3})+(?!\d))/g;
+   return num.toString().replace(regexp, ',');
+}
 </script>

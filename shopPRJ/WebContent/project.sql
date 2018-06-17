@@ -56,6 +56,10 @@ insert into product (productName, productDetail, productImage, productPrice, pro
 values ('[LIME BEANPOLE] 애쉬 라임 그래픽 티셔츠' ,
 '빈폴레이디스의 라임 그래픽 티셔츠입니다. 전면의 라임 빈폴 콜라보를 상징하는 다양한 프린팅이 포인트로 더해진 제품입니다. 코튼 소재의 라운드넥으로 어디에나 편하게 코디할 수 있으며 라임 빈폴 특유의 화사한 컬러 포인트로 멋스러운 아이템입니다.' ,
 'ash_188SS_' ,99000, 'women');
+insert into product (productName, productDetail, productImage, productPrice, productType)
+values ('18SS 블루 빅체크 리넨 셔츠' ,
+'빈폴레이디스의 빅체크 리넨 셔츠입니다. 베스트 셀러인 리넨 소재의 빅체크 원단 셔츠입니다. 베이직한 핏과 실루엣에 톤온톤 체크로 멋스럽고 활용도가 높은 아이템입니다.' ,
+'blue_check_' ,169000, 'women');
 insert into product (productName, productImage, productPrice) values ('test3' , 'dice3.jpg' ,1000);
 insert into product (productName, productImage, productPrice) values ('test4' , 'dice4.jpg' ,200);
 insert into product (productName, productImage, productPrice) values ('test5' , 'dice5.jpg' ,100000);

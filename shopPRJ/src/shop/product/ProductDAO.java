@@ -1,18 +1,15 @@
 package shop.product;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import shop.DAO;
-import shop.connection.Connect;
 
 public class ProductDAO extends DAO {
 
-	public List getProductList(int page, String category, String row_price, String high_price) {
+	//상품목록 뽑아내기
+	public List getProductList(int page, String category, String row_price, String high_price, String keyword) {
 
 		String SQL = "SELECT * From product where 1 ";
 				
@@ -20,14 +17,18 @@ public class ProductDAO extends DAO {
 			SQL+= " and productType='"+category+"' ";
 		}
 		
-		if(!row_price.equals("") && !high_price.equals("")) {
+		if(!row_price.equals("") && !high_price.equals("")) {//가격비교
 			int row = Integer.parseInt(row_price);
 			int high = Integer.parseInt(high_price);
 			SQL+= " and productPrice BETWEEN "+row+" AND "+high+" ";
 		}
+		
+		if(!keyword.equals("")) {	//이름으로 검색조건
+			SQL+= " and productName like '%"+keyword+"%' ";
+		}
 				
 		SQL += " limit " + page + ", 9 ";//page부터 9개 목록 뽑아내기
-		System.out.println(SQL);
+
 		try {
 			conn = getConnect();
 			pstmt = conn.prepareStatement(SQL);
@@ -56,9 +57,26 @@ public class ProductDAO extends DAO {
 
 	}
 
-	public int productPageSize() {
+	//상품 페이징 뽑아내기
+	public int productPageSize(int page, String category, String row_price, String high_price, String keyword) {
 
-		String SQL = "SELECT count(*) From product";
+		String SQL = "SELECT count(*) From product where 1 ";
+		
+		if(!category.equals("")) {//카테고리 선택시
+			SQL+= " and productType='"+category+"' ";
+		}
+		
+		if(!row_price.equals("") && !high_price.equals("")) {//가격비교
+			int row = Integer.parseInt(row_price);
+			int high = Integer.parseInt(high_price);
+			SQL+= " and productPrice BETWEEN "+row+" AND "+high+" ";
+		}
+		
+		if(!keyword.equals("")) {
+			SQL+= " and productName like '%"+keyword+"%' ";
+		}
+		
+
 		try {
 			conn = getConnect();
 			pstmt = conn.prepareStatement(SQL);
@@ -80,9 +98,9 @@ public class ProductDAO extends DAO {
 	}
 	
 	public ProductDTO productDetail(int productNo) {
-		System.out.println(productNo);
-		String SQL = "SELECT * From product where productNo = '"+productNo+"'";
-		System.out.println(SQL);
+
+		String SQL = "SELECT * From product where productNo = '"+productNo+"'";	//선택한 상품 상세
+
 		
 		try {
 			conn = getConnect();

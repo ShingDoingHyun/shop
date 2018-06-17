@@ -3,7 +3,7 @@
 
 <!-- Header -->
   <div id="header">
-    <h1 id="logo"><a href="#">shoparound</a></h1>
+    <h1 id="logo"><a href="/">shoparound</a></h1>
     <!-- Cart -->
     <div id="cart"> <a href="#" class="cart-link">Your Shopping Cart</a>
       <div class="cl">&nbsp;</div>
@@ -23,18 +23,22 @@
         <li><a href="/member/logout.jsp">Logout</a></li>
         <% } %>
         
-        <li><a href="#">My Account</a></li>
+        <li><a href="/member/join.jsp">My Account</a></li>
         <li><a href="/productList">The Store</a></li>
         <li><a href="/contact.jsp">Contact</a></li>
       </ul>
     </div>
     <!-- End Navigation -->
   </div>
-     <%  String category = "";
+     <%  
+     request.setCharacterEncoding("utf-8");
+     String category = "";
      	 String row = "";
      	 String high = "";
+     	 String keyword = "";
          if(request.getParameter("category")!=null) category = request.getParameter("category"); 
 		 if(request.getParameter("row_price")!=null) row = request.getParameter("row_price"); 
 		 if(request.getParameter("high_price")!=null) high = request.getParameter("high_price");
+		 if(request.getParameter("keyword")!=null) keyword = request.getParameter("keyword");
 		 %><!-- 해당 검색 선택시 값유지 -->
                 

@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <title>Insert title here</title>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
@@ -87,7 +88,7 @@ a{
 	    	int maxPages =(int)(pageSize/9);
 	    	int maxPage=0;
 	    	if(pages>=5){
-	    		out.print("<a href='productList?page="+((((pages/5)-1)*5)+4)+"&category="+category+"&row_price="+row+"&high_price="+high+"'>");
+	    		out.print("<a href='productList?page="+((((pages/5)-1)*5)+4)+"&category="+category+"&row_price="+row+"&high_price="+high+"&keyword="+keyword+"'>");
 	    		out.print("[<]");
 	    		out.print("</a>");
 	    	}
@@ -97,12 +98,12 @@ a{
 	    	else maxPage = (maxPages-(pages/5)*5)+1;
 
 	    	for(int pageNum=(pages/5)*5; pageNum < ((pages/5)*5)+maxPage; pageNum++){
-	    		out.print("<a href='productList?page="+(pageNum)+"&category="+category+"&row_price="+row+"&high_price="+high+"'>");
+	    		out.print("<a href='productList?page="+(pageNum)+"&category="+category+"&row_price="+row+"&high_price="+high+"&keyword="+keyword+"'>");
 	    		out.print("["+(pageNum+1)+"]");
 	    		out.print("</a>");
 	    	} 
 	    	if((maxPages/5)>(pages/5)){
-	    		out.print("<a href='productList?page="+(((pages/5)+1)*5)+"&category="+category+"&row_price="+row+"&high_price="+high+"'>");
+	    		out.print("<a href='productList?page="+(((pages/5)+1)*5)+"&category="+category+"&row_price="+row+"&high_price="+high+"&keyword="+keyword+"'>");
 	    		out.print("[>]");
 	    		out.print("</a>");
 	    	}
@@ -132,3 +133,17 @@ a{
 <!-- End Shell -->
 </body>
 </html>
+<script>
+
+
+	$("img").mouseover(function(){//이미지 마우스가 들어올때
+		var preSrc = $(this).attr("src");
+		$(this).attr("src", preSrc.replace('0.jpg','1.jpg'));
+	});
+	$("img").mouseleave(function(){//이미지 마우스가 벗어날때
+		var preSrc = $(this).attr("src");
+		$(this).attr("src", preSrc.replace('1.jpg','0.jpg'));
+	});
+
+
+</script>
