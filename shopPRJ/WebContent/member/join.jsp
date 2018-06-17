@@ -29,7 +29,7 @@
 			<div id="content">
 				<div class="JoinPage">
 					<br>
-					<h1>기본정보</h1>
+					<h1>&nbsp;&nbsp;기본정보</h1>
 					<br>
 					<br>
 					<p class="required ">
