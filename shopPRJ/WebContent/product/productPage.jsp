@@ -25,7 +25,7 @@ a{
 <!-- Shell -->
 <div class="shell">
   <!-- Header -->
-  <%@ include file="commons/header.jspf" %>
+  <%@ include file="../commons/header.jspf" %>
   <!-- End Header -->
   <!-- Main -->
   <div id="main">
@@ -44,6 +44,7 @@ a{
 	    <table>
 	    	<%
 			List productList=(List)request.getAttribute("productList");
+	    	
 	    	int trChk = 0;
 	    	for(int i=0;i<productList.size();i++){
 	    		ProductDTO product = (ProductDTO)productList.get(i);
@@ -52,14 +53,16 @@ a{
 		    	<tr>
 				<%}
 				
-	    		String str = String.format("%,d", product.getProductPrice());
+	    		String price = String.format("%,d", product.getProductPrice());
 				%>
 					
+					
+					
 		    			<td width=240  height=350 >
-		    				<a href="detail.jsp">	
+		    				<a href="productDetail?productNo=<%=product.getProductNo()%>">
 				    			<img  src='image/<%=product.getProductImage()%>0.jpg'><br>
 				    			<p style='text-align:center'><%=product.getProductName()%></p>
-				    			<p style='text-align:center'><%=str%>￦</p>
+				    			<p style='text-align:center'><%=price%>￦</p>
 			    			</a>	
 		    			</td>
 	    			
@@ -67,7 +70,8 @@ a{
 	    		if(trChk>=3){
 		    		trChk=0;%>
 		    	</tr><%}
-	    	}%>    	
+	    	}%> 
+ 	
 	    </table>
 	    <p style='text-align:center'>
 	    <% 	
@@ -83,7 +87,7 @@ a{
 	    	int maxPages =(int)(pageSize/9);
 	    	int maxPage=0;
 	    	if(pages>=5){
-	    		out.print("<a href='productList?page="+(((pages/5)-1)*5)+"'>");
+	    		out.print("<a href='productList.do?page="+(((pages/5)-1)*5)+"'>");
 	    		out.print("[<]");
 	    		out.print("</a>");
 	    	}
@@ -93,12 +97,12 @@ a{
 	    	else maxPage = (maxPages-(pages/5)*5)+1;
 
 	    	for(int pageNum=(pages/5)*5; pageNum < ((pages/5)*5)+maxPage; pageNum++){
-	    		out.print("<a href='productList?page="+(pageNum)+"'>");
+	    		out.print("<a href='productList.do?page="+(pageNum)+"'>");
 	    		out.print("["+(pageNum+1)+"]");
 	    		out.print("</a>");
 	    	} 
 	    	if((maxPages/5)>(pages/5)){
-	    		out.print("<a href='productList?page="+(((pages/5)+1)*5)+"'>");
+	    		out.print("<a href='productList.do?page="+(((pages/5)+1)*5)+"'>");
 	    		out.print("[>]");
 	    		out.print("</a>");
 	    	}
@@ -110,7 +114,7 @@ a{
     <!-- End Content -->
     <!-- Sidebar -->
    
-   <%@ include file="commons/sidebar.jspf" %>
+   <%@ include file="../commons/sidebar.jspf" %>
    
     <!-- End Sidebar -->
     <div class="cl">&nbsp;</div>
@@ -121,7 +125,7 @@ a{
   <!-- End Side Full -->
   <!-- Footer -->
   
-  <%@ include file="commons/footer.jspf" %>
+  <%@ include file="../commons/footer.jspf" %>
   
   <!-- End Footer -->
 </div>

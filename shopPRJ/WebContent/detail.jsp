@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="shop.product.ProductDTO" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -247,17 +248,20 @@ element.style {
 <!-- Shell -->
 <div class="shell">
   <!-- Header -->
-  <%@ include file="commons/header.jspf" %>
+    <%@ include file="commons/header.jspf" %>
   <!-- End Header -->
   <!-- Main -->
   <div id="main">
+  	    	<%
+			ProductDTO productDTO=(ProductDTO)request.getAttribute("productDTO");
+  	    	%>
     <div class="cl">&nbsp;</div>
     
     <!-- Content -->
     <div id="content">
     <!-- 상단 제품정보 -->
 	<div class="xans-element- xans-product xans-product-detail "><!-- 상품이미지 -->
-	<div class="xans-element- xans-product xans-product-image imgArea "><div class="keyImg"><img src="css/images/big1.jpg"/></div>
+	<div class="xans-element- xans-product xans-product-image imgArea "><div class="keyImg"><img src="/image/<%=productDTO.getProductImage()%>0.jpg"/></div>
 
 	</div>
 	<!-- //상품이미지 -->
@@ -276,12 +280,12 @@ element.style {
 	<caption> 기본 정보</caption>
 	<tbody>
 	<tr class=" xans-record-">
-	<td class="name"><span style="font-size:14px;color:#000000;">KI 메종드파리 반팔티</span><br/><br/>
+	<td class="name"><span style="font-size:14px;color:#000000;"><%=productDTO.getProductName()  %></span><br/><br/>
 	</td>
 	</tr>
 	<tr class=" xans-record-">
 	<td>
-	<b><span style="font-size:12px;color:#000000;">PRICE</span></b> <span style="font-size:12px;color:#000000;"><strong id="span_product_price_text">KRW 17,600 </strong><input id="product_price" name="product_price" value="" type="hidden" /></span></td>
+	<b><span style="font-size:12px;color:#000000;">PRICE</span></b> <span style="font-size:12px;color:#000000;"><strong id="span_product_price_text">KRW <%=String.format("%,d", productDTO.getProductPrice()) %> </strong><input id="product_price" name="product_price" value="" type="hidden" /></span></td>
 	</tr>
 	<tr class=" xans-record-">
 	<td>
@@ -293,10 +297,9 @@ element.style {
 	</tr>
 	<tr style="display:none;" class=" xans-record-">
 	<td>
-	<b><span style="font-size:12px;color:#555555;">상품간략설명</span></b> <span style="font-size:12px;color:#555555;">모든분들이 선호하는 색감, 핏 모두 갖춘 티라고생각합니다^^ 
-	정말 예쁩니다!! 강추합니다!! 
-	사이즈는 Free사이즈로 나왔습니다!! 
-	넉넉한 핏으로 나와서 110까지 입으시는 분들도 맞으실것같습니다!!</span></td>
+	<b><span style="font-size:12px;color:#555555;">상품간략설명</span></b> <span style="font-size:12px;color:#555555;">
+	<%=productDTO.getProductDetail() %>
+	</span></td>
 	</tr>
 	</tbody>
 	</table>
@@ -398,10 +401,7 @@ element.style {
 	<ul class="accordion">
 	<li>
 	<a>INSTRUCTION</a>
-	<div class="tab_wrap"><pre>모든분들이 선호하는 색감, 핏 모두 갖춘 티라고생각합니다^^ 
-	정말 예쁩니다!! 강추합니다!! 
-	사이즈는 Free사이즈로 나왔습니다!! 
-	넉넉한 핏으로 나와서 110까지 입으시는 분들도 맞으실것같습니다!!</pre></div>
+	<div class="tab_wrap"><pre><%=productDTO.getProductDetail() %></pre></div>
 	</li>
 	<li class="xans-element- xans-product xans-product-additional "><a>DELIVERY</a>
 	<ol class="tab_wrap"><p><strong>-배송안내</strong> </p><p> 5만원 이상 구매시 무료배송 되며, 5만원 미만인 경우 2500원의 배송비가 추가됩니다.</p><p> 로젠 택배로 발송이되며 배송기간은 2일~4일 소요될 수 있습니다.</p><p> 

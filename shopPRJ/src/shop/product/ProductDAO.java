@@ -14,7 +14,7 @@ public class ProductDAO extends DAO {
 
 	public List getProductList(int page) {
 
-		String SQL = "SELECT * From product limit " + page + ", 9 ";
+		String SQL = "SELECT * From product limit " + page + ", 9 ";//page부터 9개 목록 뽑아내기
 		try {
 			conn = getConnect();
 			pstmt = conn.prepareStatement(SQL);
@@ -24,6 +24,7 @@ public class ProductDAO extends DAO {
 
 			while (rs.next()) {// �о�� �����͸�ŭ �ݺ�
 				ProductDTO product = new ProductDTO(); // dto��ü�� ��� list�� �־��ش�.
+				product.setProductNo(rs.getInt("productNo"));
 				product.setProductName(rs.getString("productName"));
 				product.setProductImage(rs.getString("productImage"));
 				product.setProductPrice(rs.getInt("productPrice"));
@@ -58,9 +59,43 @@ public class ProductDAO extends DAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally{
+			close();
 		}
 		return 0;
 
+	}
+	
+	public ProductDTO productDetail(int productNo) {
+		System.out.println(productNo);
+		String SQL = "SELECT * From product where productNo = '"+productNo+"'";
+		System.out.println(SQL);
+		
+		try {
+			conn = getConnect();
+			pstmt = conn.prepareStatement(SQL);
+			rs = pstmt.executeQuery();
+			
+			ProductDTO productDTO = new ProductDTO();
+			int pageSize=0;
+			while (rs.next()) {// �о�� �����͸�ŭ �ݺ�
+				
+				productDTO.setProductNo(rs.getInt("productNo"));
+				productDTO.setProductName(rs.getString("productName"));
+				productDTO.setProductImage(rs.getString("productImage"));
+				productDTO.setProductPrice(rs.getInt("productPrice"));
+				productDTO.setProductDetail(rs.getString("productDetail"));
+			}
+			return productDTO;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			close();
+		}
+		
+		return null;
+		
 	}
 
 }
