@@ -30,4 +30,11 @@
     </div>
     <!-- End Navigation -->
   </div>
-<!-- End Header -->
+     <%  String category = "";
+     	 String row = "";
+     	 String high = "";
+         if(request.getParameter("category")!=null) category = request.getParameter("category"); 
+		 if(request.getParameter("row_price")!=null) row = request.getParameter("row_price"); 
+		 if(request.getParameter("high_price")!=null) high = request.getParameter("high_price");
+		 %><!-- 해당 검색 선택시 값유지 -->
+                

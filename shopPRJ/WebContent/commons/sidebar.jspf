@@ -12,9 +12,7 @@
             <input type="text" class="field" />
             <label>Category</label>
             <select class="field" name="category">
-            
-              <%  String category = "";
-              		if(request.getParameter("category")!=null) category = request.getParameter("category"); %>
+            <!-- 헤더에서 불러옴 에러아님 -->
               <option value="" <%=category.equals("") ? "selected" : " " %> >-- 전체 카테고리 --</option>
               <option value="men" <%=category.equals("men") ? "selected" : " " %> >-- 남성복 --</option>
               <option value="women" <%=category.equals("women") ? "selected" : " " %> >-- 여성복 --</option>
@@ -22,17 +20,13 @@
             <div class="inline-field">
               <label>Price</label>
               <select class="field small-field" name="row_price">
-              <%  String row = "";
-              		if(request.getParameter("row_price")!=null) row = request.getParameter("row_price"); %>
-                <option value="10000" <%=row.equals("10000") ? "selected" : " " %> >10000</option>
+              <option value="10000" <%=row.equals("10000") ? "selected" : " " %> >10000</option>
                 <option value="50000" <%=row.equals("50000") ? "selected" : " " %>>50000</option>
                 <option value="100000 <%=row.equals("100000") ? "selected" : " " %>">100000</option>
               </select>
               <label>to:</label>
               <select class="field small-field" name="high_price">
-               <%  String high = "";
-              		if(request.getParameter("high_price")!=null) high = request.getParameter("high_price"); %><!-- 해당 금액을 선택시 값유지 -->
-                <option value="50000" <%=high.equals("50000") ? "selected" : " " %>>50000</option>
+               <option value="50000" <%=high.equals("50000") ? "selected" : " " %>>50000</option>
                 <option value="100000" <%=high.equals("100000") ? "selected" : " " %>>100000</option>
                 <option value="150000"<%=high.equals("150000") ? "selected" : " " %>>150000</option>
               </select>

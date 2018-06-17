@@ -87,7 +87,7 @@ a{
 	    	int maxPages =(int)(pageSize/9);
 	    	int maxPage=0;
 	    	if(pages>=5){
-	    		out.print("<a href='productList?page="+(((pages/5)-1)*5)+"'>");
+	    		out.print("<a href='productList?page="+((((pages/5)-1)*5)+4)+"&category="+category+"&row_price="+row+"&high_price="+high+"'>");
 	    		out.print("[<]");
 	    		out.print("</a>");
 	    	}
@@ -97,12 +97,12 @@ a{
 	    	else maxPage = (maxPages-(pages/5)*5)+1;
 
 	    	for(int pageNum=(pages/5)*5; pageNum < ((pages/5)*5)+maxPage; pageNum++){
-	    		out.print("<a href='productList?page="+(pageNum)+"'>");
+	    		out.print("<a href='productList?page="+(pageNum)+"&category="+category+"&row_price="+row+"&high_price="+high+"'>");
 	    		out.print("["+(pageNum+1)+"]");
 	    		out.print("</a>");
 	    	} 
 	    	if((maxPages/5)>(pages/5)){
-	    		out.print("<a href='productList?page="+(((pages/5)+1)*5)+"'>");
+	    		out.print("<a href='productList?page="+(((pages/5)+1)*5)+"&category="+category+"&row_price="+row+"&high_price="+high+"'>");
 	    		out.print("[>]");
 	    		out.print("</a>");
 	    	}
