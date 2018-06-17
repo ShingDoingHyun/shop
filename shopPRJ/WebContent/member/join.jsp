@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="../css/style.css" type="text/css"	media="all" />
 <link rel="stylesheet" href="../css/member.css" type="text/css"	media="all" />
 
+<link rel="stylesheet" href="../css/join.css" type="text/css"	media="all" />
+
 <style>
 #confirmCheck{ visibility:hidden;}
 </style>
@@ -36,7 +38,8 @@
 					<br>
 					<div class="boardWrite">
 						<form action="/Join.do" method="post">
-							<table border="1" summary="">
+							<!--  <table border="1" summary=""> -->
+							<table id="jointable" summary="">
 								<tbody>
 									<tr>
 									<% String check = (String)request.getAttribute("check"); 

@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+input#loginBtn{
+	
+	margin : 30px 60px;
+}
+table#jointable{
+	margin : auto;
+}
+
+tr:nth-child(even) {
+	/*background: #CCC;*/
+	/*text-align : left; */
+	/*border-bottom: dashed 1px #ccc;*/
+	
+}
+
+p.required{
+	display: inline-block;
+    padding: 15px 70px;
+}
+
+th{
+    padding: 3px;
+    text-align: left;
+}
+td {
+    padding: 3px;
+    
+}
