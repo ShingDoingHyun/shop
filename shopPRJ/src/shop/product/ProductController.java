@@ -73,7 +73,7 @@ public class ProductController extends HttpServlet {
 			productDTO = productDAO.productDetail(productNo);
 			
 			request.setAttribute("productDTO", productDTO);
-			RequestDispatcher reqDis1 = request.getRequestDispatcher("/detail.jsp");
+			RequestDispatcher reqDis1 = request.getRequestDispatcher("/product/detail.jsp");
 			reqDis1.forward(request, response);
 			break;
 		}

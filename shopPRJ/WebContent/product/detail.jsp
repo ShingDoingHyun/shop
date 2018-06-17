@@ -248,7 +248,7 @@ element.style {
 <!-- Shell -->
 <div class="shell">
   <!-- Header -->
-    <%@ include file="commons/header.jspf" %>
+    <%@ include file="../commons/header.jspf" %>
   <!-- End Header -->
   <!-- Main -->
   <div id="main">
@@ -430,7 +430,7 @@ element.style {
     <!-- End Content -->
     <!-- Sidebar -->
    
-   <%@ include file="commons/sidebar.jspf" %>
+   <%@ include file="../commons/sidebar.jspf" %>
    
     <!-- End Sidebar -->
     <div class="cl">&nbsp;</div>
@@ -441,7 +441,7 @@ element.style {
   <!-- End Side Full -->
   <!-- Footer -->
   
-  <%@ include file="commons/footer.jspf" %>
+  <%@ include file="../commons/footer.jspf" %>
   
   <!-- End Footer -->
 </div>
