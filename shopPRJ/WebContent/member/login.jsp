@@ -38,7 +38,7 @@
         	<label for="pw"><b>password</b></label>
         	<input type="password" name="pwd" class="logintxt">
         	<input type="submit" name="login" value="로그인" id="loginBtn">
-        	<input type="button" name="join" value="회원가입" id="joinBtn" onClick="location.href='/'">
+        	<input type="button" name="join" value="회원가입" id="joinBtn" onClick="location.href='/member/join.jsp'">
         </form>
         	<a href='/member/findMyId.jsp' class="bul">아이디 찾기</a>
         	<a href='/member/findMyPw.jsp' class="bul">비밀번호 찾기</a>

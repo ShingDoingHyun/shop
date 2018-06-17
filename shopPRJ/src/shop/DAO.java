@@ -13,7 +13,7 @@ public class DAO {
 	protected Connection getConnect(){
 
         try {
-            String dbURL = "jdbc:mysql://localhost:3306/project";
+            String dbURL = "jdbc:mysql://localhost:3306/project?useUnicode=true&characterEncoding=utf8";
             String dbID = "admin";
             String dbPassword = "1234";
             Class.forName("com.mysql.jdbc.Driver");
