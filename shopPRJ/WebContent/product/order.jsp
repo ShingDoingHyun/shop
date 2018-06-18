@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ page import="shop.product.ProductDTO" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,18 +32,20 @@
         <!-- content -->
         <div id="order" class="order_sc _root _cartDiv">
 
+<%
+ProductDTO productDTO=(ProductDTO)request.getAttribute("productDTO");
+int quantity = Integer.parseInt(request.getAttribute("quantity").toString());
+String price = String.format("%,d", (productDTO.getProductPrice()* quantity));//금액 ,찍기
 
+
+%>
 
 
 
 
 <div class="order_header">
     <h3 class="order_payment"><span class="blind">주문/결제</span></h3>
-    <ol class="process" style="list-style: none;">
-        <li><em class="pro"><span class="blind">장바구니</span></em></li>
-        <li class="on"><em class="pro2"><span class="blind">주문/결제</span></em></li>
-        <li><em class="pro3"><span class="blind">주문완료</span></em></li>
-    </ol>
+
 </div>
 
 
@@ -88,12 +91,12 @@
 			    	<span class="bdr"></span>
 			    <div class="product_info">
 					<a href="http://smartstore.naver.com/main/products/635838342" class="product_thmb" target="_blank">
-	        			<span class="mask"></span><img src="https://order.pay.naver.com/proxy/phinf/shop1/20180410_279/hotcode_1523342347235nqMy3_JPEG/6061206081014944_1122915885.jpg?type=m120" alt="남자 여름 와이셔츠 체크 남방, 95~130빅사이즈" width="92" height="92">
+	        			<span class="mask"></span><img src="/image/<%=productDTO.getProductImage() %>0.jpg" alt="남자 여름 와이셔츠 체크 남방, 95~130빅사이즈" width="92" height="92">
 	        		</a>
 			        <div class="product_dsc">
 								<strong class="name_seller">[스마트스토어] 핫코드</strong>
-			        	<a href="http://smartstore.naver.com/main/products/635838342" target="_blank" class="product_name"><strong>[635838342] 남자 여름 와이셔츠 체크 남방, 95~130빅사이즈</strong></a>
-
+			        	<a href="http://smartstore.naver.com/main/products/635838342" target="_blank" class="product_name"><strong><%=productDTO.getProductName() %></strong></a>
+						<!--
 				            <div class="option">
 					            <span class="ico_option"><span class="blind">옵션</span></span>
 					            <ul class="option_list">
@@ -102,6 +105,7 @@
 										</li>
 					            </ul>
 				            </div>
+				           -->
 
 			        </div>
 			        <span class="vm"></span>
@@ -115,11 +119,11 @@
 					</span>
                 </td>
 
-			<td>1개</td>
+			<td><%=quantity %>개</td>
 			
 			<td class="col_price">
 			    <!-- <span class="orgn_price _productOrderTotalAmt2018061836947600"><em>23,800</em>원</span>  -->
-			    <strong><em class="_productOrderPayAmt2018061836947600">19,800</em>원</strong>
+			    <strong><em class="_productOrderPayAmt2018061836947600"><%=price %></em>원</strong>
 			</td>
 		</tr>
 
@@ -187,9 +191,9 @@
             <div class="_deliveryMemoInner deliver_option">
             
 			            <div class="comments deliveryMemo">
-			            	<p class="products_tit _deliveryMemoProductName deliverySingleMemo" style="display:none;">남자 여름 와이셔츠 체크 남방, 95~130빅사이즈</p>
+			            	<p class="products_tit _deliveryMemoProductName deliverySingleMemo" style="display:none;"><%=productDTO.getProductName() %></p>
 				            <p class="products_tit _deliveryMemoProductName deliveryProductMemo">
-								남자 여름 와이셔츠 체크 남방, 95~130빅사이즈(상품명: 선택07) HC1셔츠 / 사이즈: {100})
+								<%=productDTO.getProductName() %>
 				            </p>
 				            	<div class="dropdown_wrap">
 					            	<input type="text" placeholder="배송 메세지를 입력해 주세요." title="배송 메세지" name="deliveryMemo" class="deli_msg placeholder _deliveryForm deliverySingleMemo _click(nmp.front.order.order_sheet.showLatestDeliveryMemo()) _stopDefault">

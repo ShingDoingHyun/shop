@@ -273,6 +273,7 @@ element.style {
 	<li class="p"></li> 
 	</ul>
 	</div>-->
+	
 	<%String price = String.format("%,d", productDTO.getProductPrice());//금액 ,찍기 %>
 	<%String point = String.format("%,d", productDTO.getProductPrice()/100);   %>
 	<h3> <span class="displaynone">(해외배송 가능상품)</span>
@@ -387,7 +388,7 @@ element.style {
 	<!-- 구매버튼 -->
 	<div class="xans-element- xans-product xans-product-action "><div class="btnArea">
 	<ul>
-	<a class="btn1 " onclick="">BUY</a>
+	<a class="btn1 " onclick="order();">BUY</a>
 	<a href="#none" class="btn2 " onclick="product_submit(2, '/exec/front/order/basket/', this)">CART</a>
 	<a href="#none" onclick="add_wishlist_nologin('/member/login.html');" class="btn3 ">WISH</a>
 	</ul>
@@ -476,7 +477,9 @@ $("#quantity").change(function(){//토탈가격 변경
 	$("#total").text( addComma($(this).val()*<%=productDTO.getProductPrice()%> ));
 })
 
-
+function order(){
+	window.location.href="/productOrder?productNo="+<%=productDTO.getProductNo()%>+"&quantity="+$('#quantity').val();
+}
 
 function addComma(num) {//세번째자리 콤마
   var regexp = /\B(?=(\d{3})+(?!\d))/g;

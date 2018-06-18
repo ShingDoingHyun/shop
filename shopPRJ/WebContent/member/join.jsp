@@ -89,12 +89,12 @@
 											class="inputTypeText" placeholder="" value="" type="text" /></td>
 									</tr>
 									<tr>
-										<th scope="row" id="memberName">이름 <img src="/css/images/ico_required.gif" alt="필수" /></th>
+										<th scope="row" >이름 <img src="/css/images/ico_required.gif" alt="필수" /></th>
 										<td><input id="memberName" name="memberName" class="inputTypeText" placeholder="" value="" type="text" />
 											<span id="under14Msg" class="displaynone">14세 미만 사용자는 법정대리인 동의가 필요합니다.</span></td>
 									</tr>
 									<tr>
-										<th scope="row" id="memberAge">나이 <img src="/css/images/ico_required.gif" alt="필수" /></th>
+										<th scope="row">나이 <img src="/css/images/ico_required.gif" alt="필수" /></th>
 										<td><input id="memberAge" name="memberAge" class="inputTypeText" placeholder="" value="" type="text" onKeyPress="return numkeyCheck(event)"/></td>
 									</tr>
 									<tr>
@@ -301,6 +301,33 @@
 	        		 return false;
 	        	}
 	        }
+
+	        if ($('#memberName').val()=== "") {
+	            alert("이름11을 입력해 주세요");
+	            return false;
+	        }
+	        if ($('#memberAge').val()=== "") {
+	            alert("나이를 입력해 주세요");
+	            return false;
+	        }
+	        if (!$('#is_sex0').prop('checked') && !$('#is_sex1').prop('checked')) {
+	            alert("성별을 선택해 주세요");
+	            return false;
+	        }
+	        if ($('#mobile2').val()=== "" || $('#mobile3').val()=== "") {
+	            alert("핸트폰번호를 입력해 주세요");
+	            return false;
+	        }
+	        if ($('#postcode1').val()=== "" || $('#arr1').val()=== ""  ||$('#arr2').val()=== "") {
+	            alert("주소를 입력해 주세요");
+	            return false;
+	        }
+	        if ($('#email1').val()=== "" || $('#email2').val()=== "" ) {
+	            alert("이메일을 입력해 주세요");
+	            return false;
+	        }
+	       
+	        
 	        	
 	        $("#joinForm").submit();
 	    });

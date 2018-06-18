@@ -30,7 +30,7 @@ h4 { font-size:12px; line-height:14px; text-transform: uppercase; color:#000; }
 
 
 h1#logo { font-size:0; line-height:0; width:156px; height:64px; float:left; }
-h1#logo a{ display:block; height:64px; text-indent: -4000px; background:url(images/logo.gif); }
+h1#logo a{ display:block; height:64px; text-indent: -4000px; background:url(images/logo.png); }
 
 .shell { width:960px; margin:0 auto; padding:10px; background:#fff; }
 

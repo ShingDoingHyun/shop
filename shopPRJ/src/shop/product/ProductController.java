@@ -31,7 +31,8 @@ public class ProductController extends HttpServlet {
 		// TODO Auto-generated method stub
 		String requestURI = request.getRequestURI();
 		ProductDAO productDAO = new ProductDAO();
-
+		ProductDTO productDTO = new ProductDTO();
+		int productNo=0;
 		switch (requestURI) {
 		case "/productList"://상품목록
 			int page = 0;//기본페이지일땐 0
@@ -68,13 +69,25 @@ public class ProductController extends HttpServlet {
 			break;
 		case "/productDetail"://상품상세
 			
-			ProductDTO productDTO = new ProductDTO();
-			int productNo = Integer.parseInt(request.getParameter("productNo")); 
+
+			productNo = Integer.parseInt(request.getParameter("productNo")); 
 			productDTO = productDAO.productDetail(productNo);
 			
 			request.setAttribute("productDTO", productDTO);
 			RequestDispatcher reqDis1 = request.getRequestDispatcher("/product/detail.jsp");
 			reqDis1.forward(request, response);
+			break;
+		case "/productOrder"://상품상세
+			
+
+			productNo = Integer.parseInt(request.getParameter("productNo")); 
+			String quantity = request.getParameter("quantity"); 
+			productDTO = productDAO.productDetail(productNo);
+			System.out.println(quantity);
+			request.setAttribute("quantity", quantity);
+			request.setAttribute("productDTO", productDTO);
+			RequestDispatcher reqDis2 = request.getRequestDispatcher("/product/order.jsp");
+			reqDis2.forward(request, response);
 			break;
 		}
 
