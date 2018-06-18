@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <link rel="stylesheet" href="../css/style.css" type="text/css"	media="all" />
 <link rel="stylesheet" href="../css/member.css" type="text/css"	media="all" />
 
@@ -36,8 +36,8 @@
 						<img src="/css/images/ico_required.gif" alt="필수" /> 필수입력사항
 					</p>
 					<br>
-					<div class="boardWrite">
-						<form action="/Join.do" method="post">
+					<div class="boardWrite"> 
+						<form action="/Join.do" method="post" id="joinForm" >
 							<!--  <table border="1" summary=""> -->
 							<table id="jointable" summary="">
 								<tbody>
@@ -48,8 +48,10 @@
 									%>
 										<th scope="row">아이디 <img src="/css/images/ico_required.gif" alt="필수" /></th>
 										<td><input id="memberId" name="memberId" placeholder=""	value="" type="text" maxlength="16"/> (영문소문자/숫자,4~16자)
-										<input type="button" id="idCheck" value="중복체크" onclick="checkId()">
-										<input type="checkbox" id="confirmCheck" name="cofirmCheck" display="none" <%=check %>>
+										<input type="button" value="중복체크" onclick="checkId()">
+										<input type="hidden" id="idCheck" value="">
+										
+										<input type="checkbox" id="confirmCheck" name="cofirmCheck" display="none" <%=check %>>										
 										 </td>
 									</tr>
 									<tr>
@@ -185,7 +187,7 @@
 									</tr>
 								</tbody>
 							</table>
-							<input type="submit" name="join" value="회원가입" id="loginBtn">
+							<input type="button" name="join" value="회원가입" id="loginBtn">
 							<input type="button" name="cancle" value="취소" id="joinBtn" onClick="location.href='/'">
 						</form>
 						<% String msg = (String)request.getAttribute("msg"); %>
@@ -244,16 +246,20 @@
 			
 			if(!id){							// 아이디를 입력하지 않는 경우
 				alert("아이디를 입력하지 않았네요");
+				$('#idCheck').val("");
 				return false;
 			}
 			else if((id < '0' || id > '9') && (id < 'a' || id > 'z') && (id < 'A' || id > 'Z') ) {
 				alert("한글 및 특수문자는 아디로 사용할수 없다 이것아!!");		// 특수문자 사용한 경우
+				$('#idCheck').val("");
 			}
 			else if(id > 'A' && id < 'Z'){	// 대문자를 사용한 경우
-				alert("대문자를 사용하시면 아니되오")
+				alert("대문자를 사용하시면 아니되오");
+				$('#idCheck').val("");
 			}
 			else if(id.length<4){
 				alert("아이디는 최소 4자이상 되어야 하오!!");		// 특수문자 사용한 경우
+				$('#idCheck').val("");
 				
 			}			
 			else{
@@ -263,6 +269,41 @@
 				
 			}
 		}
+	    $("#loginBtn").click(function(){ 
+
+	        var password1 = $('#passwd').val(); //password의 값을 넣는다.
+	        var password2 = $('#user_passwd_confirm').val();
+	        
+	        
+	        var num = password1.search(/[0-9]/g);
+	        var eng = password1.search(/[a-zA-Z]/ig);
+	        var spe = password1.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+
+	        if ($('#idCheck').val()!== "checked") {
+	            alert("아이디 중복체크를 해주세요.");
+	            return false;
+	        }
+	       
+	        //비밀번호의 길이가 8자보다 작으면 경고를 띄운다.
+	      	if (password1.length < 8) {
+	            alert("패스워드의 길이는 8자보다 작을수 없습니다.");
+	            return false;
+	        }else if( password1 !== password2){
+	        	alert("1차 2차 비밀번호가 다릅니다.");
+	            return false;
+	        }else{
+	        	num = num >= 0 ? 1 : 0;
+	        	eng = eng >= 0 ? 1 : 0;
+	        	spe = spe >= 0 ? 1 : 0;
+	        	
+	        	if((num+eng+spe) < 2){
+	        		alert("영문 대소문자/숫자/특수문자 중 2가지 이상 조합으로 해야함.");
+	        		 return false;
+	        	}
+	        }
+	        	
+	        $("#joinForm").submit();
+	    });
 		
 	
 				

@@ -29,9 +29,9 @@
         <div id="slider-holder">
           <ul>
             <li><a href="#"><img src="css/images/slide1.jpg" alt="" /></a></li>
-            <li><a href="#"><img src="css/images/slide1.jpg" alt="" /></a></li>
-            <li><a href="#"><img src="css/images/slide1.jpg" alt="" /></a></li>
-            <li><a href="#"><img src="css/images/slide1.jpg" alt="" /></a></li>
+            <li><a href="#"><img src="css/images/asd.jpg" alt="" /></a></li>
+            <li><a href="#"><img src="css/images/asd2.jpg" alt="" /></a></li>
+            <li><a href="#"><img src="css/images/asd3.jpg" alt="" /></a></li>
           </ul>
         </div>
         <div id="slider-nav"> <a href="#" class="active">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> </div>
@@ -51,7 +51,7 @@
                 <strong class="price">$58.99</strong> </div>
             </div>
           </li>
-          <li> <a href="#"><img src="css/images/big1.jpg" alt="" /></a>
+          <li> <a href="#"><img src="css/images/big2.jpg" alt="" /></a>
             <div class="product-info">
               <h3>LOREM IPSUM</h3>
               <div class="product-desc">
@@ -61,7 +61,7 @@
                 <strong class="price">$58.99</strong> </div>
             </div>
           </li>
-          <li class="last"> <a href="#"><img src="css/images/big1.jpg" alt="" /></a>
+          <li class="last"> <a href="#"><img src="css/images/big3.jpg" alt="" /></a>
             <div class="product-info">
               <h3>LOREM IPSUM</h3>
               <div class="product-desc">

@@ -35,7 +35,7 @@
 	
 	<script>
 		function check(){
-			
+			opener.document.getElementById("idCheck").value = "<%=check%>";
 			this.close();
 						
 		}

@@ -15,7 +15,7 @@
     <!-- Navigation -->
     <div id="navigation">
       <ul>
-        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/" class="active">home</a></li>
         
         <% if(sessionID == null){  %>
         <li><a href="http://localhost/member/login.jsp">Login</a></li>

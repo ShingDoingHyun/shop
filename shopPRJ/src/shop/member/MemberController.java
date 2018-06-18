@@ -184,6 +184,7 @@ public class MemberController extends HttpServlet {
 			}	
 			else {														// id가 없는경우
 				request.setAttribute("msg","사용할수 있는 아이디다");
+				request.setAttribute("check", "checked");
 			}
 			
 			request.setAttribute("reID", id);
