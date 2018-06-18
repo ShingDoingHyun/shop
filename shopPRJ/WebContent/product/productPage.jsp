@@ -34,9 +34,16 @@ a{
     <!-- Content -->
     <div id="content">
 
+<%
 
+String cate="";
+if(category=="")cate="전체상품";
+else if(category.equals("men"))cate="남성품";
+else if(category.equals("women"))cate="여성용";
+
+%>
     <br>
-    <h1>&nbsp;&nbsp;전체상품</h1>
+    <h1>&nbsp;&nbsp;<%=cate %></h1>
     	<br>
     	<br>
     	<br>
