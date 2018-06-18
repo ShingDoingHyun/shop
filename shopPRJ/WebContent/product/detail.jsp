@@ -387,7 +387,7 @@ element.style {
 	<!-- 구매버튼 -->
 	<div class="xans-element- xans-product xans-product-action "><div class="btnArea">
 	<ul>
-	<a href="/product/order.jsp" class="btn1 " onclick="product_submit(1, '/exec/front/order/basket/', this)">BUY</a>
+	<a class="btn1 " onclick="">BUY</a>
 	<a href="#none" class="btn2 " onclick="product_submit(2, '/exec/front/order/basket/', this)">CART</a>
 	<a href="#none" onclick="add_wishlist_nologin('/member/login.html');" class="btn3 ">WISH</a>
 	</ul>
@@ -475,6 +475,8 @@ $("#quantity").change(function(){//토탈가격 변경
 
 	$("#total").text( addComma($(this).val()*<%=productDTO.getProductPrice()%> ));
 })
+
+
 
 function addComma(num) {//세번째자리 콤마
   var regexp = /\B(?=(\d{3})+(?!\d))/g;

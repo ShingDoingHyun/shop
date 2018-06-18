@@ -144,19 +144,19 @@ public class MemberController extends HttpServlet {
 			String idCheck = request.getParameter("confirmCheck");			// id중복체크를 한 경우
 						
 			// id중복검사가 되지 않은 경우
-			if(idCheck != "checked") {
-				request.setAttribute("msg", "id중복체크가 되지 않았소");
-				resultURI = "/member/join.jsp";
-			}
+//			if(idCheck != "checked") {
+//				request.setAttribute("msg", "id중복체크가 되지 않았소");
+//				resultURI = "/member/join.jsp";
+//			}
 										
 			// 메일 중복 체크
-			else if(memberDAO.checkMail(memberEmail)) {						// 메일주소가 중복될 경우 - 메시지와 함께 회원가입 창으로
+			if(memberDAO.checkMail(memberEmail)) {						// 메일주소가 중복될 경우 - 메시지와 함께 회원가입 창으로
 				request.setAttribute("msg", "email 주소가 중복되었습니다.");
 				resultURI = "/member/join.jsp"; 										
 			}	
 			else {															// 메일주소가 중복이 없는 경우 - 회원가입						
 				System.out.println("메일없다.회원가입 가즈아~");		
-								
+		
 				boolean checkJoin = memberDAO.join(memberId, memberPwd, memberName, memberAge, memberGender, memberPhone, memberAdress, memberEmail);
 				
 				if(checkJoin) {		// 회원가입 성공 : db에 회원정보가 정상적으로 성공될 경우
