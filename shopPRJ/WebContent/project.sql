@@ -80,3 +80,15 @@ insert into product (productName, productImage, productPrice) values ('test19' ,
 
 SELECT count(*) From product;
 SELECT * From product limit 4, 3;
+
+
+create table project.shoppinglist(
+no int(11) auto_increment primary key,
+img_src varchar(100) not null,
+item_name varchar(100) not null,
+item_amount varchar(11) not null,
+item_price varchar(11) not null
+);
+
+drop table shoppinglist;
+SELECT * From shoppinglist ;

@@ -389,7 +389,8 @@ element.style {
 	<div class="xans-element- xans-product xans-product-action "><div class="btnArea">
 	<ul>
 	<a class="btn1 " onclick="order();">BUY</a>
-	<a href="#none" class="btn2 " onclick="product_submit(2, '/exec/front/order/basket/', this)">CART</a>
+	<a href="./addCart.cart?productImg=<%=productDTO.getProductImage()%>"
+				class="btn2 " onclick="product_submit(2, '/exec/front/order/basket/', this)">CART</a>
 	<a href="#none" onclick="add_wishlist_nologin('/member/login.html');" class="btn3 ">WISH</a>
 	</ul>
 	</div>
