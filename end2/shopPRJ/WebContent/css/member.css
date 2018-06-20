@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+div#loginForm, div#findForm {
+	margin: 10% auto 15% auto;
+    /* border: 1px solid #888; */
+    width: 50%;
+}
+
+input.logintxt{
+	width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input#loginBtn{
+	background-color: #8b0000;
+    color: white;
+    padding: 14px 20px;
+    margin: 30px 20px;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+}
+
+input#joinBtn{
+	background-color: #8b0000;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+}
+input#findBtn{
+	background-color: #8b0000;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 100px;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+}
+p#msg{
+	margin: 10px auto;
+}
